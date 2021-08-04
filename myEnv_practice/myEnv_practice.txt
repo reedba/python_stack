@@ -1,0 +1,64 @@
+PS C:\Users\rdsfe\desktop\python_stack\my_environments> .\py3Env\Scripts\activate
+(py3Env) PS C:\Users\rdsfe\desktop\python_stack\my_environments> pip list 
+Package      Version
+------------ -------
+click        8.0.1  
+colorama     0.4.4  
+Flask        2.0.1  
+itsdangerous 2.0.1  
+Jinja2       3.0.1  
+MarkupSafe   2.0.1  
+pip          21.1.3 
+setuptools   56.0.0 
+Werkzeug     2.0.1  
+WARNING: You are using pip version 21.1.3; however, version 21.2.2 is available.
+You should consider upgrading via the 'c:\users\rdsfe\desktop\python_stack\my_environments\py3env\scripts\python.exe -m pip install --upgrade pip' command.
+
+
+
+1---Above shows all the downloaded files required for a virtual environment. Right now it has the files to be able to Run Flask programs.
+
+
+(py3Env) PS C:\Users\rdsfe\desktop\python_stack\my_environments> deactivate
+
+2---Above will de3activate the current virtual environment
+
+
+
+PS C:\Users\rdsfe\desktop\python_stack\my_environments> pip3 list 
+Package    Version
+---------- -------
+pip        21.2.2 
+setuptools 28.8.0 
+
+3---Above is the pip3 list and only shows the 2 files that are outside of the environment.
+
+
+PS C:\Users\rdsfe\desktop\python_stack\my_environments> .\py3Env\Scripts\activate
+(py3Env) PS C:\Users\rdsfe\desktop\python_stack\my_environments> 
+
+
+4---above will activate the virtual environment
+
+5---When installing Django it shows a progress bar and all the files used for Django.
+
+6---pip list shows ALL installed packages. pip freeze shows packages YOU installed via pip
+
+
+7---It shows all of the files that are on my desktop
+
+8---This unistalls Django
+
+9---This shows the details about the Django package and environment
+
+Name: Django
+Version: 2.2
+Summary: A high-level Python Web framework that encourages rapid development and clean, pragmatic design.
+Home-page: https://www.djangoproject.com/
+Author: Django Software Foundation
+Author-email: foundation@djangoproject.com
+License: BSD
+Location: c:\users\rdsfe\desktop\python_stack\my_environments\py3env\lib\site-packages
+Requires: sqlparse, pytz
+Required-by:
+
