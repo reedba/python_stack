@@ -1,0 +1,12 @@
+How do you get just the number to print out and not the iteration(total sum)?
+--Can you have a text sent out with python?
+--Can you have an e-mail sent out with python?
+
+Suggestions on the the project I would like to work on....?
+
+what happens after the python portion?
+
+What is question 6 asking in the for Loop basic algo?
+
+--Are there any small project ideas you canwork on now in your extrra time for the portfolio?
+--Should I use Bootdstrap for my portfolio V.S Scratch code it?
