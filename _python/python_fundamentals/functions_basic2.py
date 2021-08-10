@@ -23,11 +23,13 @@ first_plus_length([7,2,3,4,5])
 new_list = []
 def  values_greater_than_second(list3):
     for x in list3:
-        if list3[1] < x:
+        if len(list3) < 2:
+            print("false")
+        elif list3[1] < x:
             new_list.append(x)
             print(new_list)
 
-values_greater_than_second([1,2,5,0,3])
+values_greater_than_second([1,2,10,3,30])
 
 #5
 def length_and_value(a,b):
