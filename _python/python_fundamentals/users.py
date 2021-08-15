@@ -53,31 +53,39 @@ class User:
         self.eye_color = eye_color
         self.display_user_balance = 0
         
+        
     def make_withdrawal(self,amount):
-            self.display_user_balance -= amount
+        self.display_user_balance -= amount
+        return self
 
     def make_deposit(self, amount):
         self.display_user_balance+=amount
+        return self
+
+    def make_transfer(self, transfer_amount, user2):
+        self.make_withdrawal(transfer_amount)
+        user2.make_deposit(transfer_amount)
+        return self
+        
+        
 
 
-user_one = User("Brandon", "Blonde", "Blue")
-user_two = User("Noah","Blonde","Blue")
-user_three = User("Jackie", "Brown", "Blue")
-user_one.make_deposit(500)
-user_one.make_deposit(300)
-user_one.make_deposit(200)
-user_one.make_withdrawal(900)
-user_two.make_deposit(300)
-user_two.make_deposit(300)
-user_two.make_withdrawal(200)
-user_two.make_withdrawal(200)
-user_three.make_deposit(2000)
-user_three.make_withdrawal(2000)
-user_three.make_withdrawal(500)
-user_three.make_withdrawal(200)
-print(user_one.name)
-print(user_two.name)
-print(user_three.name)
-print(user_one.display_user_balance)
-print(user_two.display_user_balance)
-print(user_three.display_user_balance)
+Brandon = User("Brandon", "Blonde", "Blue")
+Noah = User("Noah","Blonde","Blue")
+Jackie = User("Jackie", "Brown", "Blue")
+
+
+
+Brandon.make_deposit(100).make_deposit(11000).make_deposit(300).make_withdrawal(50).make_transfer(10000, Jackie)
+Jackie.make_transfer(1000,  Noah).make_deposit(300).make_withdrawal(200)
+Noah.make_withdrawal(200).make_deposit(100).make_withdrawal(100).make_withdrawal(50)
+
+
+print(Jackie.display_user_balance)
+print(Brandon.display_user_balance)
+print(Noah.display_user_balance)
+
+
+
+
+
