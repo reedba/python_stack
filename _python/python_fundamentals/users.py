@@ -79,7 +79,8 @@ Jackie = User("Jackie", "Brown", "Blue")
 Brandon.make_deposit(100).make_deposit(11000).make_deposit(300).make_withdrawal(50).make_transfer(10000, Jackie)
 Jackie.make_transfer(1000,  Noah).make_deposit(300).make_withdrawal(200)
 Noah.make_withdrawal(200).make_deposit(100).make_withdrawal(100).make_withdrawal(50)
-
+Brandon.make_deposit(500).make_transfer(10000,Noah)
+Noah.make_deposit(1000).make_transfer(5000,Jackie)
 
 print(Jackie.display_user_balance)
 print(Brandon.display_user_balance)
