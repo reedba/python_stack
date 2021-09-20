@@ -10,17 +10,19 @@
 </head>
 <body>
     <h1>Start of Dojo Survey</h1>
-        <form action="">
+        <form action="/results" method='POST'>
+            {% csrf_token %}
             <label for="your_name">Your Name:</label>
-            <input type="text">
+            <input type="text" name="name">
             <label for="location">Dojo Location</label>
-                <select name="locations" id="locations">
+                <select name="location" id="locations">
                     <option value="seattle">Seattle</option>
                     <option value="remote">Remote</option>
                     <option value="san_francisco">San Francisco</option>
                 </select>
             <label for="language">Favorite Language</label>
                 <select name="language" id="language">
+                    <option value="false">Select Language</option>
                     <option value="python">Python</option>
                     <option value="javascript">Javascript</option>
                     <option value="html">HTML</option>
