@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="cash">
+        <h3>Your Gold:</h3>
+        <p id="cashbox"></p>
+    </div>
+    <div class="tasks">
+        <form action="">
+            <div id="farm">
+                <h3>Farm</h3>
+                <p>(earns 10-20 gold)</p>
+                <button type="button">Find Gold!</button>
+            </div>
+        </form>
+        <form action="">
+            <div id="cave">
+                <h3>Cave</h3>
+                <p>(earns 5-10 gold)</p>
+                <button type="button">Find Gold!</button>
+            </div>
+        </form>
+        <form action="">
+            <div id="house">
+                <h3>House</h3>
+                <p>(earns 2-5 gold)</p>
+                <button type="button">Find Gold!</button>
+            </div>
+        </form>
+        <form action="">
+            <div id="casino">
+                <h3>Casino</h3>
+                <p>(earns/takes 0-50 gold)</p>
+                <button type="button">Find Gold!</button>
+            </div>
+        </form>
+    </div>
+    <h4>Activities:</h4>
+    <div id="terminal-row">
+        <div id="terminal"></div>
+    </div>
+    
+</body>
+</html>
