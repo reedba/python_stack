@@ -1,0 +1,27 @@
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+table{
+    border: black 5px solid;
+    display: flex;
+    width: 600px;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+form{
+    width: 190px;
+    border: black 5px solid;
+}
+
+hr{
+    color: black;
+    background-color: black;
+}
