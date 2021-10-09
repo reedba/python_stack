@@ -15,18 +15,20 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>NAME</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
                 <th>EMAIL</th>
                 <th>AGE</th>
             </tr>
+            {% for user in all_users %}
             <tr>
-                {% for user in all_users %}
-                <td>{{ID}</td>
-                <td>{{name.first_name}</td>
-                <td>{{EMAIL}</td>
-                <td>{{AGE}</td>
-                {% endfor %}
+                <td>{{user.id}}</td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.e_mail}}</td>
+                <td>{{user.age}}</td>
             </tr>
+            {% endfor %}
         </table>
     </div>
         <hr>
@@ -34,13 +36,13 @@
             <form action="/add_user" method="POST">
                 {% csrf_token %}
                     <label for="first_name">First Name:</label>
-                    <input type="text">
+                    <input type="text" name='first_name'>
                     <label for="last_name">Last Name:</label>
-                    <input type="text">
+                    <input type="text" name='last_name'>
                     <label for="email">Email:</label>
-                    <input type="email">
+                    <input type="email" name="e_mail">
                     <label for="age">Age:</label>
-                    <input type="number">
+                    <input type="number" name="age">
                     <button type="submit" value="submit">Add User</button>
             </form>
     
