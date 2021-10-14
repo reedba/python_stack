@@ -17,6 +17,6 @@ def add_dojo(request):
 
 def add_ninja(request):
     if request.method == 'POST':
-        Ninja.objects.create(first_name=request.POST['first_name'],last_name=request.POST['last_name'],dojo=request.POST['dojo'])
+        Ninja.objects.create(first_name=request.POST['first_name'],last_name=request.POST['last_name'],dojo_id = request.POST['dojo]'])
     return redirect('/')
     
