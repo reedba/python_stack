@@ -1,0 +1,19 @@
+.inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#dojos, #ninjas{
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 180px;
+}
+
+.dojoData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
