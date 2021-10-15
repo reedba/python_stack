@@ -1,0 +1,173 @@
+>>> from books_authors_app.models import Book, Author
+>>> Book.objects.create(title='C Sharp', description = 'Computer language mainly used developed by microsoft and is based on C++. Contains features similar to Java')
+<Book: Book object (1)>
+>>> Book.objects.create(title='Java')
+<Book: Book object (2)>
+>>> Book.objects.create(title='PHP')
+<Book: Book object (3)>
+>>> Book.objects.create(title='Python')
+<Book: Book object (4)>
+>>> Book.objects.create(title='Ruby')
+<Book: Book object (5)>
+>>> Book.objects.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>, <Book: Book object (5)>]>
+>>> Author.objects.create(first_name='Jane',last_name='Austen')
+>>> Author.objects.create(first_name='Emily',last_name='Dickinson')
+<Author: Author object (2)>
+>>> Author.objects.create(first_name='Fyodor',last_name='Dostoevsky')
+<Author: Author object (3)>
+>>> Author.objects.create(first_name='William',last_name='Shakespeare')
+<Author: Author object (4)>
+>>> Author.objects.create(first_name='Lau',last_name='Tzu')
+<Author: Author object (5)>
+>>> Author.objects.all()
+<QuerySet [<Author: Author object (1)>, <Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>, <Author: Author object (5)>]>
+>>> from books_authors_app.models import *
+>>> Book.objects.get(id=1)
+<Book: Book object (1)>
+>>> Book.objects.first()
+<Book: Book object (1)>
+>>> Book.objects.get(id=1).name()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Book' object has no attribute 'name'
+>>> Book.objects.get(id=1).title()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+TypeError: 'str' object is not callable
+>>> Book.objects.get(id=1)__dict__
+  File "<console>", line 1
+    Book.objects.get(id=1)__dict__
+                                 ^
+SyntaxError: invalid syntax
+>>> Books.objects.get(id=1).values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Books.objects.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Books' is not defined
+>>> Book.objects.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>, <Book: Book object (5)>]>
+>>> Book.objects.get(id=1) 
+<Book: Book object (1)>
+>>> Book.objects.get(id=1).title
+'C Sharp'
+>>> Book.objects.get(id=1).title = C#
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'C' is not defined
+>>> C = Book.objects.get(id=1)
+>>> C.title=C#
+>>> C.save()
+>>> C.title
+<Book: Book object (1)>
+>>> Book.objects.get(id=1).title
+'C Sharp'
+>>> C.title='C#'
+>>> C.save()
+>>> C.title
+'C#'
+>>> Author.objects.get(id=4).first_name
+'William'
+>>> Author.objects.get(id=4).first_name='Bill'
+>>> Author.objects.get(id=4).save()
+>>> Author.objects.get(id=4).first_name
+'William'
+>>> Bill = Author.objects.get(id=4)
+>>> Bill.first_name='Bill'
+>>> Bill.save()
+>>> Bill.first_name
+'Bill'
+>>> Jane.books.all()
+<QuerySet []>
+>>> Jane.books.add(C)
+>>> Jane.books.all()
+<QuerySet [<Book: Book object (1)>]>
+>>> Book.objects.get(id=2).title
+'Java'
+>>> Java=Book.objects.get(id=2)
+>>> Jane.books.add(Java)
+>>> Jane.books.all()    
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>]>
+>>> Book.objects.get(id=3)
+<Book: Book object (3)>
+>>> Book.objects.get(id=3).title
+'PHP'
+>>> PHP=Book.objects.get(id=3)
+>>> Author.objects.get(id=2)
+Book: Emily Ninjas:books_authors_app.Book.None
+>>> Author.objects.get(id=2).first_name.last_name
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'str' object has no attribute 'last_name'
+>>> Author.objects.get(id=2).first_name
+'Emily'
+>>> Emily=Author.objects.get(id=2)
+>>> Emily.books.add(C)
+>>> Amily.books.add(Java)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Amily' is not defined
+>>> Emily.books.add(Java)
+>>> Emily.books.add(PHP)
+>>> Emily.books.all
+<bound method BaseManager.all of <django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x0000024D75D0DA20>>
+>>> Emily.books.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>]>
+>>> Author.objects.get(id=3).first_name
+'Fyodor'
+>>> Fyodor=Author.objects.get(id=3)
+>>> Fyodor.books.add(C)
+>>> Fyodor.books.add(Java)
+>>> Fyodor.books.add(PHP)
+>>> Book.objects.get(id=4).title
+'Python'
+>>> Fyodor.books.add(Python)
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Python' is not defined
+>>> Python=Book.objects.get(id=4)
+>>> Fyodor.books.add(Python)
+>>> Fyodor.books.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+>>> Author.objects.get(id=5).first_name
+'Lau'
+>>> Lau=Author.objects.get(id=5)
+>>> Book.objects.get(id=5).title
+'Ruby'
+>>> Lau.books.add(C)
+>>> Lau.books.add(Java)
+>>> Lau.books.add(PHP)
+>>> Lau.books.add(Python)
+>>> Ruby=Book.objects.get(id=5)
+>>> Lau.books.add(Ruby)
+>>> Lau.books.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>, <Book: Book object (5)>]>
+>>> PHP.authors.all()
+<QuerySet [Book: Emily Ninjas:books_authors_app.Book.None, Book: Fyodor Ninjas:books_authors_app.Book.None, Book: Lau Ninjas:books_authors_app.Book.None]>
+>>> PHP.authors.all()  
+<QuerySet [Book: Emily Ninjas:books_authors_app.Book.None, Book: Fyodor Ninjas:books_authors_app.Book.None, Book: Lau Ninjas:books_authors_app.Book.None]>
+>>> PHP.authors.remove(Emily)
+>>> PHP.authors.all()
+<QuerySet [Book: Fyodor Ninjas:books_authors_app.Book.None, Book: Lau Ninjas:books_authors_app.Book.None]>
+>>> Book.objects.get(id=2).title
+'Java'
+>>> Java.authors.add(Lau)
+>>> Java.authors.all()
+<QuerySet [Book: Jane Ninjas:books_authors_app.Book.None, Book: Emily Ninjas:books_authors_app.Book.None, Book: Fyodor Ninjas:books_authors_app.Book.None, Book: Lau Ninjas:books_authors_app.Book.None]>
+>>> Author.objects.get(id=3)
+Book: Fyodor Ninjas:books_authors_app.Book.None
+>>> Fyodor.books.all()
+<QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+>>> Book.objects.get(id=5)
+<Book: Book object (5)>
+>>> Book.objects.get(id=5).title
+'Ruby'
+>>> Ruby.athors.all()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'Book' object has no attribute 'athors'
+>>> Ruby.authors.all()
+<QuerySet [Book: Lau Ninjas:books_authors_app.Book.None]>
