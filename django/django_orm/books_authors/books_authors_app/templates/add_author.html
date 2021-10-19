@@ -10,15 +10,18 @@
 </head>
 <body>
     <div class="wrapper">
-        <div id="add_book">
-            <h1>Add Book</h1>
-            <form action="/add_book" method="POST">
+        <div id="add_author">
+            <h1>Add Author</h1>
+            <form action="/add_author" method="POST">
                 {% csrf_token %}
-                <label for="title">Title</label>
-                <input type="text" name="title">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name">
                 <br>
-                <label for="description">Description</label>
-                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name">
+                <br>
+                <label for="notes">Notes</label>
+                <textarea name="notes" id="" cols="30" rows="10"></textarea>
                 <br>
                 <button type="submit">Add</button>
             </form>
@@ -27,20 +30,19 @@
             <table>
                 <tr>
                     <th>ID</th>
-                    <th>TITLE</th>
+                    <th>AUTHOR</th>
                     <th>ACTION</th>
-
                 </tr>
-                {% for book in books %}
+                {% for author in authors.all %}
                 <tr>
-                    <td>{{book.id}}</td>
-                    <td>{{book.title}}</td>
-                    <td><a href="/view_book/{{book.id}}">VIEW</a></td>
+                    <td>{{author.id}}</td>
+                    <td>{{author.first_name}} {{author.last_name}}</td>
+                    <td><a href="/view_author/{{author.id}}">VIEW</a></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        <a href="/author_list">Author List</a>
+        <a href="/"> Book List</a>
     </div>
 
 </body>
