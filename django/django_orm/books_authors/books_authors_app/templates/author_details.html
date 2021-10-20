@@ -23,9 +23,9 @@
             </ul>
         </div>
         <div>
-            <form action="/" method="POST">
+            <form action="/add_book/{{author.id}}" method="POST">
                 {% csrf_token %}
-                <select name="books" id="books">
+                <select name="book_selected" id="books">
                     {% for book in books.all %}
                     <option value="{{book.id}}">{{book.title}}</option>
                     {% endfor %}
