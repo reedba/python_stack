@@ -12,11 +12,12 @@
 <body id="body" class="d-flex flex-row justify-content-center bg-success align-items-center width:100% height:2000px">
     <div class="d-flex flex-column bg-warning align-items-center width: 700px">
         <div class="d-flex flex-row align-items-center justify-content-between width:400px ">
-            <h1>Edit Show{{Num}</h1>
+            <h1>Edit Show{{show.id}}</h1>
             <a href="#">Go Back</a>
         </div>
         <div class="bg-dark">
-            <form class="form-group d-flex flex-column width:400px bg-info" action="/" method="POST">
+            <form class="form-group d-flex flex-column width:400px bg-info" action="/update_show/{{show.id}}" method="POST">
+                {% csrf_token %}
                 <label for="title">Title:</label>
                 <input type="text" name="title">
                 <div class="d-flex flex-row justify-content-evenly">
@@ -29,9 +30,9 @@
                 </div>
                 <div class="description">
                     <label for="description">Description</label>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <textarea class="form-control" aria-label="With textarea" name="description"></textarea>
                 </div>
-                <div id="button" class="btn btn-primary btn-sm rounded-pill width:50px;">Update</div>
+                <button type="submit">Update Show</button>
                 <a href="#">Go To Show</a>
             </form>
         </div>

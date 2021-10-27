@@ -32,9 +32,31 @@ def show_details(request, show_id):
     }
     return render(request,'tv_show_dets.html',context)
 
+def view_show(request, show_id):
+    show = Shows.objects.get(id = show_id)
+    return redirect(f'/show_details/{show.id}')
 
-def edit_show(request):
-    return render(request,'edit_show.html')
+
+def remove_show(request, show_id):
+    show = Shows.objects.get(id = show_id)
+    show.delete()
+    return redirect('/shows_list')
+
+def edit_show(request, show_id):
+    context = {
+        'show':Shows.objects.get(id = show_id)
+    }
+    return render(request,"edit_show.html", context)
+
+
+def update_show(request, show_id):
+    show = Shows.objects.get(id = show_id),
+    show.title = request.POST['title'],
+    show.description = request.POST['description'],
+    show.release_date = request.POST['release_date'],
+    show.network = request.POST['network'],
+    show.save()
+    return redirect('/shows_list')
 
 
 # Create your views here.
