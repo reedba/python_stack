@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body id="body" class="d-flex flex-row justify-content-center bg-success align-items-center width:100% height:2000px">
+    {% if messages %}    
+        {% for message in messages %}    
+            <li>{{ message }}</li>    
+        {% endfor %}
+    </ul>
+    {% endif %}
     <div class="d-flex flex-column bg-warning align-items-center width: 700px">
         <div class="d-flex flex-row align-items-center justify-content-between width:400px ">
             <h1>Edit Show{{show.id}}</h1>
@@ -26,7 +32,7 @@
                 </div>
                 <div>
                     <input type="text" name="network">
-                    <input type="date">
+                    <input type="date" name="release_date">
                 </div>
                 <div class="description">
                     <label for="description">Description</label>

@@ -1,6 +1,7 @@
 
 from django.shortcuts import render, redirect
 from .models import Shows
+from django.contrib import messages
 
 
 def index(request):
@@ -12,6 +13,13 @@ def index(request):
 
 def create_show(request):
     if request.method == 'POST':
+
+        errors = Shows.objects.basic_validator(request.POST)
+        if len(errors)>0:
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/')
+
         tv_show = Shows.objects.create(title=request.POST['title'],description=request.POST['description'],release_date=request.POST['release_date'],network=request.POST['network'])
         
     return redirect(f'/show_details/{tv_show.id}')
@@ -50,13 +58,13 @@ def edit_show(request, show_id):
 
 
 def update_show(request, show_id):
-    show = Shows.objects.get(id = show_id),
-    show.title = request.POST['title'],
-    show.description = request.POST['description'],
-    show.release_date = request.POST['release_date'],
-    show.network = request.POST['network'],
-    show.save()
-    return redirect('/shows_list')
+    to_update = Shows.objects.get(id = show_id)
+    to_update.title = request.POST['title']
+    to_update.description = request.POST['description']
+    to_update.release_date = request.POST['release_date']
+    to_update.network = request.POST['network']
+    to_update.save()
+    return redirect(f'/show_details/{to_update.id}')
 
 
 # Create your views here.

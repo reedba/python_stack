@@ -11,6 +11,12 @@
 </head>
 <body id="body" class="d-flex flex-row justify-content-center bg-success align-items-center width:100% height:2000px">
     <div class="d-flex flex-column bg-warning align-items-center width: 700px">
+        {% if messages %}    
+            {% for message in messages %}    
+                <li>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
         <div class="d-flex flex-row align-items-center justify-content-between width:400px ">
             <h1>Add New Show</h1>
             <a href="#">Go Back</a>
