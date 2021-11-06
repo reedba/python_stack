@@ -5,8 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Wall</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <h1>This is my main page</h1>
+    <div id="top">
+        <h1>Coding Dojo Wall</h1>
+        <h3>Welcome{{user.first_name}}</h3>
+        <a href="">Logout</a>
+    </div>
+    <hr>
+    <form action="/create_message" method="POST">
+        {% csrf_token %}
+        <label for="message">Post A Message:</label>
+        <textarea name="message" id="" cols="100" rows="10"></textarea>
+        <button type="submit">Submit Message</button>
+    </form>
+        {% for message in messages.all %}
+        <ul>
+            <li>{{message}}</li>
+        </ul>
+        {% endfor %}
+
+
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div id="top">
+        <h1>Coding Dojo Wall</h1>
+        <h3>Welcome: {{user1.first_name}}</h3>
+        <a href="/logout">Logout</a>
+    </div>
+    <hr>
+    <form action="/create_message" method="POST">
+        {% csrf_token %}
+        <label for="message">Post A Message:</label>
+        <textarea name="message" id="" cols="100" rows="10"></textarea>
+        <button type="submit">Submit Message</button>
+    </form>
+        {% for message in messages %}
+            <p class="date">{{message.created_at}}</p>
+            <p class="message">{{message.message}}</p>
+                    <form action="/post_comment/{{message.id}}" method="POST">
+                        {% csrf_token %}
+                        <label for="comment">Comment</label>
+                        <input type="text" name="comment">
+                        <button type="submit">Comment</button> 
+                    </form>
+                    {% for comment in message.post_comments.all %}
+                    <p class="date">{{comment.created_at}}</p>
+                    <p class="comment">{{comment.comment}}</p>
+                    {% endfor %}
+        {% endfor %}
+
+
+</body>
+</html>

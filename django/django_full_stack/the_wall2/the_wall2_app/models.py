@@ -1,7 +1,6 @@
 from django.db import models
-import re 
+import re
 import bcrypt 
-
 
 # Create your models here.
 class UserManager(models.Manager):
@@ -31,7 +30,7 @@ class UserManager(models.Manager):
     def login_validator(self, postData):
         errors = {}
         existing_user = User.objects.filter(email = postData['email'])
-        if len(postData['email']) ==0:
+        if len(postData['email']) == 0:
             errors['email'] = 'Email must be entered'
         if len(postData['password']) < 8:
             errors['password'] = 'An 8 character password must me entered'
