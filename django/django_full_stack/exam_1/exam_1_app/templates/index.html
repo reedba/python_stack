@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div>
+        <form action="/register" method="POST">
+            {% csrf_token %}
+            <div>
+                <h1>Registration</h1>
+            </div>
+            <div class="input">
+                <label for="">First Name</label>
+                <input type="text" name="first_name" id="">
+            </div>
+            <div class="input">
+                <label for="">Last Name</label>
+                <input type="text" name="last_name" id="">
+            </div>
+            <div class="input">
+                <label for="">Email</label>
+                <input type="text" name="email" id="">
+            </div>
+            <div class="input">
+                <label for="">Password</label>
+                <input type="password" name="password" id="">
+            </div>
+            <div class="input">
+                <label for="">Confirm PW</label>
+                <input type="password" name="confirm_pw" id="">
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <div>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <div>
+                <h1>Login</h1>
+            </div>
+            <div>
+                <label for="">Email</label>
+                <input type="text" name="log_email" id="">
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input type="password" name="log_password" id="" >
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    <ul>
+        {% if messages %}    
+            {% for message in messages %}    
+                <li>{{ message }}</li>    
+            {% endfor %}
+        {% endif %}
+    </ul>
+    </div>
+</body>
+</html>

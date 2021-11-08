@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div>
+        <h1>Dojo Wall</h1>
+        <h3>Welcome: {{user1.first_name}} {{user1.last_name}}</h3>
+        <a href="/logout">logout</a>
+    </div>
+    <div>
+        <form action="/create_message" method="POST">
+            {% csrf_token %}
+            <label for="">Post Comment:</label>
+            <textarea name="message" id="" cols="30" rows="10"></textarea>
+            <button type="submit">Submit Message</button>
+        </form>
+    </div>
+    <div>
+        {% for message in messages %}
+        <p>{{message.created_at}}</p>
+        <p>{{message.message}}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

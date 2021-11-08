@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>Quote Dashboard</h1>
+        <p>Welcome: {{user.first_name}} {{user.last_name}} {{user.id}}</p>
+        <div class="top_links">
+            <a href="/edit_account/{{user.id}}">Edit Account</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="quotes">
+            {% for quote in quotes %}
+                <h3>Quotes</h3>
+                <div class="quote"> 
+                    <p>{{quote.quote}}</p>
+                    <p>Posted By: <a href="/poster_list/{{quote.poster.id}}">{{quote.poster.first_name}} {{quote.poster.last_name}}</a></p>
+                    <div class="likes">
+                        <p>{{ quote.user_likes.count }} people like this</p>
+                        <a href="/like/{{quote.id}}">Like Quote</a>
+                        {% if user.id == quote.poster.id %}
+                        <a href="/delete/{{quote.id}}">Delete</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="form">
+            <h3>Add Quote!</h3>
+            <form action="/create_quote" method="POST">
+                {% csrf_token %}
+                <div class="author_input">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="">
+                </div>
+                <div class="quote_input">
+                    <label for="author">Quote</label>
+                    <textarea name="quote" id="" cols="30" rows="10"></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+            <ul>
+                {% if messages %}    
+                    {% for message in messages %}    
+                        <li>{{ message }}</li>    
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

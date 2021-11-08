@@ -1,0 +1,59 @@
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quote{
+    border: 2px solid black;
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.likes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.quotes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.author_input,.quote_input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+textarea{
+    width: 170px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.likes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
