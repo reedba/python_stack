@@ -84,9 +84,6 @@ def edit_account(request, id):
     return render(request, 'edit_account.html')
 
 def update(request):
-    context = {
-        'to_update':User.objects.get(id = request.session['user_id'])
-    }
     to_update = User.objects.get(id = request.session['user_id'])
 
     to_update.first_name = request.POST['update_first_name']
@@ -94,4 +91,4 @@ def update(request):
     to_update.email = request.POST['update_email']
     to_update.save()
 
-    return redirect('/edit_account')
+    return redirect(f'/edit_account/{to_update.id}')

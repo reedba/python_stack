@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'book_dets.css' %}">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome: {{ User}</h1>
+        <a href="/logout">Logout</a>
+    </div>
+    <hr>
+    <div id="content">
+        <div id="edit_form">
+            <div id="info"> 
+                <h3>{{book_name}</h3>
+                <p>Added by:{{created by}</p>
+                <p>Added on:{{created_at}</p>
+                <p>Last Updated on:{{updated_at}</p>
+                <div id="description">
+                <p>Description: {{description}</p>
+            </div>
+        </div>
+        <div id="add_fav">
+            <a href="#">Add to favorites</a>
+        </div>
+        <div id="user_list">
+            <h2>Users who like this book</h2>
+            <ul>
+                <li>{{name of book}</li>
+                <a href="#" id="un_favorite">Un-favorite</a>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

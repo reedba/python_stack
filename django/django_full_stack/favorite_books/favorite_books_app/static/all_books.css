@@ -1,0 +1,26 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body{
+    padding: 10px;
+}
+
+
+.input{
+    display: flex;
+    width: 275px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+#content{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

@@ -1,0 +1,38 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+ul{
+    display: flex;
+}
+
+#un_favorite{
+    margin-left: 5px;
+}
+
+#description{
+    display: flex;
+}
+
+#input{
+    display: flex;
+    flex-direction: column;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+

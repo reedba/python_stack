@@ -18,7 +18,7 @@
             <a href="/logout">Logout</a>
         </div>
     </div>
-    <form action="update/{{user.id}}" method="POST">
+    <form action="/update" method="POST">
         {% csrf_token %}
         <div>
             <h3>Update Registration</h3>
