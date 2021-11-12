@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wishlist{
+    display: inline-grid;
+}
+
+.head{
+    display: flex;
+    margin-left: 10px;
+    border: 2px solid black;
+}
+
+table, th, td {
+    border: 1px solid black;
+}

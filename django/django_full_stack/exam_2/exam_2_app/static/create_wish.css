@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box{
+    border: solid black 2px;
+    width: 350px;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 5px;
+}
+
+.button{
+    padding: 5px;
+    margin: 5px;
+}
+
+a, button{
+    margin: 5px;
+}
