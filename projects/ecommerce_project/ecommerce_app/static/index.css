@@ -1,0 +1,9 @@
+img{
+    width: 100%;
+    height: 300px;
+}
+
+#image{
+    background-image: url("https://ziggyknowsdisney.com/wp-content/uploads/2020/05/disney-world-50th-anniversary-concept-art.jpg.webp");
+    width: max-content;
+}

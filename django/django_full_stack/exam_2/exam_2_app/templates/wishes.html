@@ -56,7 +56,8 @@
                     </thead>
                     <tbody>
                         {% for wish in wishes %}
-                        {% if wish not in user.user_wishes.all %}
+                        {% if wish in user.wishes_granted.all%}
+                        
                         
                         <tr>
                             <td>{{wish.item}}</td>

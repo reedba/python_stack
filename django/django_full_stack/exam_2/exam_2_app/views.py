@@ -83,9 +83,13 @@ def add_wish(request):
     return redirect('/create_wish')
 
 def edit(request, id):
+    if 'user_id' not in request.session:
+        return redirect('/')
+    this_user = User.objects.filter(id = request.session['user_id'])
     wish = Wishes.objects.get(id=id)
     context = {
-        'wish':wish
+        'wish':wish,
+        'user':this_user[0]
     }
     return render(request,'edit.html', context)
 
