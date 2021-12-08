@@ -13,24 +13,17 @@
 <body >
     <div class="m-3">
         <nav id ="nav" class="navbar bg-light navbar-expand-lg navbar-light shadow-lg p-3 mb-1 border rounded" >
-            <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
         
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse d-flex flex-row justify-content-between" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto" >
-                <li class="nav-item active">
-                <a class="nav-link text-dark" href="#">Tasks</a>
+                <li class="nav-item">
+                <a class="nav-link text-dark" href="/create_task">Assign Task</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Admin</a>
-                </li> 
-                <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Assign Task</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Completed</a>
+                    <a class="nav-link text-dark" href="/complete_task">Completed</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#">Pending</a>
@@ -39,7 +32,32 @@
                     <a class="nav-link text-dark" href="#">My Tasks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Logout</a>
+                    <a class="nav-link text-dark" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Category</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form action="/cat_creation" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                        <textarea class="form-control" id="message-text" placeholder="Category" name="category"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
                 </li>
             </ul>
             <div>
@@ -49,43 +67,39 @@
                 </form>
             </div>
             </div>
+            
         </nav>
     </div>
-    <div id ="header" class="border bg-light rounded-2 m-3 p-3">
-        <h1>Welcome: User</h1>
-        <div class="input_block">
-            <label for="">Filter:</label>
-            <select class="mdb-select md-form" searchable="Search here..">
-                <option value="" disabled selected>Choose your category</option>
-                <option value="1">{Categories}}</option>
-            </select>
-        </div>
+    <div class="d-flex border bg-light rounded-2 m-3 p-3 flex-row justify-content-center">
+        <h1>Welcome: {{this_user.first_name}} {{this_user.last_name}}</h1>
     </div>
     <div id="table" class="bg-light border rounded-2 m-3 shadow-lg">
         <table class="table table-hover m-3 table-sm-responsive">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Assigned by:</th>
-                <th>Date assigned:</th>
-                <th>Status:</th>
-                <th>Assigned to:</th>
-                <th>Date completed:</th>
-                <th>Days to complete:</th>
-                <th>Actions:</th>
+                <th>Assigned By</th>
+                <th>Date Assigned</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th>Date Completed</th>
+                <th>Days to Complete</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>{{ID}</td>
+            {% for task in tasks %} 
+            <tr> 
+                <td>{{task.id}}</td>
                 <td>{{firstname} {{lastname}</td>
                 <td>11/26/21</td>
                 <td>Pending</td>
                 <td>{{firstname} {{lastname}</td>
                 <td>TBD</td>
-                <td>14</td>
-                <td><a href="#" class="text-success">Edit</a> | <a href="#" class="text-success">View</a> | <a href="#" class="text-success">Remove</a> | <a href="#" class="text-success">Completed</a></td>
+                <td>{task.title}}</td>
+                <td><a href="#" class="text-success">Edit</a> | <a href="#" class="text-success">View</a> | <a href="#" class="text-success">Remove</a> | <a href="#" class="text-success">Completed</a></td>   
             </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

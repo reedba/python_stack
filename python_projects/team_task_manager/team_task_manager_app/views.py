@@ -19,7 +19,7 @@ def register(request):
         #create a session
         request.session['user_id'] = new_user.id
         return redirect('/')
-    return redirect('/create_task')
+    return redirect('/all_tasks')
 
 
 def login(request):
@@ -30,7 +30,7 @@ def login(request):
                 messages.error(request, error)
             return redirect('/')
         request.session['user_id'] = User.objects.filter(email = request.POST['log_email'])[0].id
-    return redirect ('/create_task')
+    return redirect ('/all_tasks')
 
 def logout(request):
     request.session.flush()
@@ -40,13 +40,32 @@ def index(request):
     return render(request, 'index.html')
 
 def create_task(request):
-    return render(request, 'create_task.html')
+    context = {
+        'this_user':User.objects.get(id = request.session['user_id']),
+        'users': User.objects.all(),
+        'categories':category.objects.all()
+    }
+    return render(request, 'create_task.html', context)
+
+def task_creation(request):
+    if request.method == 'POST':
+        Task.objects.create(title=request.POST['title'], description=request.POST['description'], due_date=request.POST['due_date'])
+    return redirect('/all_tasks')
+
+def cat_creation(request):
+    if request.method == 'POST':
+        category.objects.create(category = request.POST['category'])
+    return redirect('/all_tasks')
 
 def edit_task(request):
     return render(request, 'edit_task.html')
 
 def all_tasks(request):
-    return render(request,'all_tasks.html')
+    context = {
+        'this_user':User.objects.get(id = request.session['user_id']),
+        'tasks':Task.objects.all()
+    }
+    return render(request,'all_tasks.html', context)
 
 def complete_task(request):
     return render(request,'complete_task.html')
