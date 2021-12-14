@@ -1,4 +1,4 @@
-import random
+from random import randint
 import math
 
 #Fundamentals to do 1
@@ -77,29 +77,49 @@ import math
 
 #Arrays to do 1
 #def shuf(arr):
-#    newarr = []
-#    for i in range(0, len(arr)):
-#            i=random.randint(1,len(arr))
-#            if arr[i] not in newarr: 
-#                newarr.append(arr[i])
-#                arr.pop()
-#    
-#    print(newarr)
+#    n =len(arr)
+#    for i in range(n):
+#        rand = randint(i, n-1)
+#
+#        arr[i], arr[rand] = arr[rand], arr[i]
+#
+#    print(arr)
 #
 #shuf([20,16,5,41,3,2,1])
 
 
 #def sky_hi(arr):
-#    #loop throug the array
-#    #check if the number next to it is
-#    pass
+#    for i in range(len(arr)):
+#        if arr[i] > 0:
+#            num = arr[i]
+#    new_arr = [num]
+#    for i in range(1, len(arr)):
+#        if num < arr[i]:
+#            num = arr[i]
+#            new_arr.append(num)
+#    print(new_arr)
+#sky_hi([-1,2,3,1,1,2])
 
-# String to do 1
 
-def remove_blanks(str):
-    print(str.join(""))
-    
+#def zip_it(arr1, arr2):
+#    new_arr = []
+#    for i in range(0,len(arr1)):
+#        new_arr.append(arr1[i])
+#    for i in range(0, len(arr2)):
+#        new_arr.append(arr2[i])
+#
+#    sorted_numbers = sorted(new_arr)
+#    print(sorted_numbers)
+#
+#zip_it([1,3,4,7,9], [20,40,60,80])
 
-remove_blanks(" Pl ayTha tF u nkyM usi c ")
+
+#String to do 1
+
+#def remove_blanks(str):
+#    print(str.replace(" ", ""))
+#    
+#
+#remove_blanks(" Pl ayTha tF u nkyM usi c ")
 
 
