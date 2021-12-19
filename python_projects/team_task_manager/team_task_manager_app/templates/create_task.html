@@ -22,9 +22,6 @@
                     <li class="nav-item active">
                     <a class="nav-link text-dark" href="/all_tasks">All Tasks</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link text-dark" href="#">Create Category</a>
-                        </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" href="#">All Completed</a>
                     </li>
@@ -38,57 +35,38 @@
                         <a class="nav-link text-dark" href="/logout">Logout</a>
                     </li>
                 </ul>
-                <div>
-                    <form class="d-flex form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
                 </div>
             </nav>
         </div>
     <div class="form-group shadow-lg bg-light m-3 border rounded-2">
         <div class="form-group">
+        <form action="/task_creation" method="POST">
             {% csrf_token %}
-        <div>
-            <h1>Assign your task: {{this_user.first_name}} {{this_user.last_name}}</h1>
-        </div>
-        <div class="d-flex flex-row justify-content-around">
-            <div class="input_block">
-                <label for="">Assign to:</label>
-                <select class="mdb-select md-form" searchable="Search here..">
-                    <option value="#" disabled selected>Select User</option>
-                    {% for user in users.all %}
-                    <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
-                    {% endfor %}
-                </select>
+            <div>
+                <h1>Assign your task: {{this_user.first_name}} {{this_user.last_name}}</h1>
             </div>
-            <div class="input_block">
-                <label for="">To be completed by:</label>
-                <input type="date" value="" name="due_date">
-            </div>
-            <div class="input_block">
-                <label for="">Choose Category:</label>
-                <select class="mdb-select md-form" searchable="Search here..">
-                    <option value="" disabled selected>Choose your category</option>
-                    {% for category in categories %}
-                    <option value="{{category.id}}">{{category.category}}</option>
-                    {% endfor %}
-                </select>
-            </div>
+                <div id="title_input"  class="p-2">
+                    <label for="">Assign to:</label>
+                        <select name="assigned_to" class="mdb-select md-form" searchable="Search here..">
+                            <option value="#" disabled selected>Select User</option>
+                            {% for user in users.all %}
+                            <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="">To be completed by:</label>
+                        <input type="date" value="" name="due_date">
+                        <label for="">Task Title:</label>
+                        <input style="width: 300px;" type="text" name="title">
+                    </div>
+                    <div id="task_desc" class="p-2">
+                        <label for="">Task Description</label>
+                        <textarea id="" cols="30" rows="10" name="description"></textarea>
+                    </div>
+                <div id="submit_button" class="p-2">
+                    <button class="btn btn-primary mt-1">Submit</button>
+                </div>
+        </form>
         </div>
-        <div id="title_input"  class="p-2">
-            <label for="">Task Title:</label>
-            <input style="width: 300px;" type="text" name="title">
-        </div>
-        <div id="task_desc" class="p-2">
-            <label for="">Task Description</label>
-            <textarea id="" cols="30" rows="10" name="description"></textarea>
-        </div>
-        <div id="submit_button" class="p-2">
-            <button class="btn btn-primary mt-1">Submit</button>
-        </div>
-    </div>
     </div>
     
 </body>

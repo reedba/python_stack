@@ -35,6 +35,17 @@ class UserManager(models.Manager):
             errors['passwordNoMatch'] = 'Invalid user and password combination'
         return errors
 
+class TaskManager(models.Manager):
+    def Task_Validator(self, postData):
+        errors = {}
+        if len(postData['Update_Title']) < 3:
+                errors['Update_Title']='Title should be atleast 3 characters'
+        if postData['update_due_date'] == False:
+                errors['update_due_date']='Must select due date '
+        if len(postData['update_description']) < 10:
+                errors['update_description']='Description not long enough '
+        return errors
+
 class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
@@ -50,12 +61,19 @@ class Task(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     due_date = models.DateTimeField(null=True)
-    user = models.ForeignKey(User, related_name="users_tasks", on_delete = models.CASCADE)
+    creator = models.ForeignKey(User, related_name="has_created_task", on_delete=models.CASCADE)
+    assigned_user = ManyToManyField(User, related_name="users_tasks")
+    user_likes = models.ManyToManyField(User, related_name='liked_posts')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    objects = TaskManager()
 
-class category(models.Model):
-    category = models.CharField(max_length=255)
-    categories = models.ManyToManyField(Task, related_name='task_categories')
+
+class Complete(models.Model):
+    completion_notes = models.TextField()
+    date_completed = models.DateTimeField(null=True)
+    task = models.OneToOneField(Task, on_delete=models.CASCADE, primary_key=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    
+

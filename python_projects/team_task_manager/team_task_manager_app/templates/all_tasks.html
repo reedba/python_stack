@@ -23,51 +23,10 @@
                 <a class="nav-link text-dark" href="/create_task">Assign Task</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="/complete_task">Completed</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Pending</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">My Tasks</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-dark" href="/logout">Logout</a>
                 </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Category</button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <form action="/cat_creation" method="POST">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                        <textarea class="form-control" id="message-text" placeholder="Category" name="category"></textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
                 </div>
             </div>
-                </li>
-            </ul>
-            <div>
-                <form class="d-flex form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-            </div>
-            
         </nav>
     </div>
     <div class="d-flex border bg-light rounded-2 m-3 p-3 flex-row justify-content-center">
@@ -82,25 +41,31 @@
                 <th>Date Assigned</th>
                 <th>Status</th>
                 <th>Assigned To</th>
-                <th>Date Completed</th>
-                <th>Days to Complete</th>
+                <th>Due Date</th>
+                <th>Task</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            {% for task in tasks %} 
+            {% for task in tasks %}
             <tr> 
                 <td>{{task.id}}</td>
-                <td>{{firstname} {{lastname}</td>
-                <td>11/26/21</td>
+                <td>{{task.creator.first_name}} {{task.creator.last_name}}</td>
+                <td>{{task.created_at}}</td>
                 <td>Pending</td>
-                <td>{{firstname} {{lastname}</td>
-                <td>TBD</td>
-                <td>{task.title}}</td>
-                <td><a href="#" class="text-success">Edit</a> | <a href="#" class="text-success">View</a> | <a href="#" class="text-success">Remove</a> | <a href="#" class="text-success">Completed</a></td>   
+                
+                <td>
+                    {% for user in task.assigned_user.all %}
+                    {{user.first_name}} {{user.last_name}} 
+                    {% endfor %}
+                </td>
+                <td>{{task.due_date}}</td>
+                <td>{{task.title}}</td>
+                <td><a href="/edit_task/{{task.id}}" class="text-success">Edit</a> | <a href="/view_task/{{task.id}}" class="text-success">View</a> | <a href="/delete/{{task.id}}" class="text-success">Remove</a> | <a href="/complete_task/{{task.id}}" class="text-success">Completed</a></td>   
             </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
 </body>
+</html>

@@ -20,62 +20,39 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto" >
                 <li class="nav-item active">
-                <a class="nav-link text-dark" href="#">Tasks</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Admin</a>
+                <a class="nav-link text-dark" href="/all_tasks">All Tasks</a>
                 </li> 
                 <li class="nav-item">
-                <a class="nav-link text-dark" href="#">Assign Task</a>
+                <a class="nav-link text-dark" href="/create_task">Assign Task</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Completed</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Pending</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">My Tasks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">Logout</a>
+                    <a class="nav-link text-dark" href="/logout">Logout</a>
                 </li>
             </ul>
-            <div>
-                <form class="d-flex form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
             </div>
         </nav>
     </div>
     <div id ="header" class="border bg-light shadow-lg rounded-2 m-3 p-3">
-        <h1>Welcome: User</h1>
-        <div class="d-flex flex-row justify-content-around">
+        <div class="d-flex flex-column justify-content-around">
             <div class="input_block">
                 <h3>Assigned to:</h3>
-                <p>{{Jon Doe}</p>
+                {% for user in task.assigned_user.all %}
+                <p>{{user.first_name}} {{user.last_name}}</p>
+                {% endfor %}
                 
             </div>
-            <div class="input_block">
-                <h3>Completed Date:</h3>
-                <p>{{date}</p>
-            </div>
-            <div class="input_block">
-                <h3>Category:</h3>
-                <p>{{category}</p>
-            </div>
-        </div>
-        <div id="title_input"  class="p-2">
+            <div class="input_block" class = "">
             <h3>Title:</h3>
-            <p>{{Title}</p>
-        </div>
-        <div id="task_desc" class="p-2">
+            <p>{{task.title}}</p>
+            <h3>Due Date:</h3>
+            <p>{{task.due_date}}</p>
+            </div>
+
+        <div id="task_desc" class="">
             <h3>Description:</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque dicta enim ut, vitae iste laborum quas, minima quia praesentium odit dolorum excepturi nobis maiores. Architecto deserunt et quas cum?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut neque quos laboriosam tenetur odio perspiciatis maxime debitis ratione. Numquam cum aut iure provident molestiae velit dicta explicabo minus architecto quis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente dolor ut labore est ratione, sunt repellat recusandae. Accusamus culpa dignissimos deserunt voluptates, a illum maiores quidem, vitae nostrum impedit reprehenderit! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam quos sed dolorum? Illum magni voluptatem dignissimos quis! Beatae unde officiis quibusdam, sunt mollitia quia atque, voluptas illo dolore rerum veniam?</p>
+            <p>{{task.description}}</p>
         </div>
-        <div class="p-2">
+        <div class="">
             <h3>Completion details:</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque dicta enim ut, vitae iste laborum quas, minima quia praesentium odit dolorum excepturi nobis maiores. Architecto deserunt et quas cum?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut neque quos laboriosam tenetur odio perspiciatis maxime debitis ratione. Numquam cum aut iure provident molestiae velit dicta explicabo minus architecto quis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente dolor ut labore est ratione, sunt repellat recusandae. Accusamus culpa dignissimos deserunt voluptates, a illum maiores quidem, vitae nostrum impedit reprehenderit! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam quos sed dolorum? Illum magni voluptatem dignissimos quis! Beatae unde officiis quibusdam, sunt mollitia quia atque, voluptas illo dolore rerum veniam?</p>
         </div>
@@ -85,3 +62,4 @@
 </div>
     
 </body>
+</html>
