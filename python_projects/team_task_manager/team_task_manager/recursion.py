@@ -131,6 +131,30 @@ class BST:
         return self
 
 
+    def min(self):
+        if self.root == None:
+            return "This tree is empty"
+        runner = self.root
+        min = self.root.value
+        while runner.left != None:
+            if runner.left < min:
+                min = runner.left
+            runner = runner.left
+        return min
+
+    def max(self):
+        runner = self.root
+        max = self.root.value
+        while runner.right != None:
+            if runner.right > max:
+                max = runner.right
+            runner = runner.right
+        return max
+
+
+
+
+
 
 
 
