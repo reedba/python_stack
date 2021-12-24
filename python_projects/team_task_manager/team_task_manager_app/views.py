@@ -112,7 +112,7 @@ def complete_task(request, id):
     }
     return render(request,'complete_task.html', context)
 
-def task_completion(request):
+def task_completion(request, id):
     if request.method == 'POST':
-        complete_notes = Complete.objects.create(completion_notes = request.POST['completion_notes'], date_completed = request.POST['completion_date'], task = Complete.objects.get(id =  ))
-    pass
+        complete_notes = Complete.objects.create(completion_notes = request.POST['completion_notes'], date_completed = request.POST['completion_date'], task = Task.objects.get(id = id))
+    return redirect('/all_tasks')
