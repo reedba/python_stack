@@ -1,0 +1,30 @@
+#greeting{
+    position:absolute;
+    left: 100px;
+    top: 100px;
+    color: #0000FF;
+    font-size: 50px;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid black;
+    
+    /* transition prperties*/
+    /*transition-property: font-size;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 250ms;*/
+    
+    /*This is the shorthand for the above*/
+    /*transition: font-size 1s ease 250ms, color 1s;*/
+
+    transition: font-size 1s, 
+                color 1s,
+                left 1s;
+}
+
+
+#greeting.myTransition{
+    font-size: 100px;
+    color: red;
+    left: 220px;
+}

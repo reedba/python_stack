@@ -1,0 +1,59 @@
+/* transform perspective needs to be on the parent element */
+
+body{
+    /* makes this look more 3d */
+    transform: perspective(100px);
+    transform-style: preserve-3d;
+}
+
+
+#box{
+    position: relative;
+    top: 40px;
+    width: 500px;
+    height: 400px;
+    background-color: #afd3ef;
+    border: 3px solid #032e4f;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* this is the starting point */
+#bird{
+    position: absolute;
+    left: 170px;
+    top: 90px;
+    width: 150px;
+    border: 2px solid black;
+    
+    /*rotates in different positions*/
+    /*transform: rotate(45deg);
+    transform-origin: 200% 100%;*/
+
+    
+    /*zooms in and out puicture or element*/
+    /*transform:scale(.2);*/
+    
+    /* 3D transform-rotate on the x and y axis*/
+    /* this causes it to spin or flip*/
+    transform: rotateX(0deg) rotateY(0deg);
+    
+    /* speed of transition */
+    transition:all 1s;
+}
+
+/* hover over box and then it will effect tyhe bird element within the box this will be the end effect*/
+#box:hover #bird{
+    /*will transform over*/
+    /*transform: translate(100px, -50px);*/
+
+    /* transform rotates */
+    /*transform: rotate(-45deg);*/
+
+    /*zooms in and out puicture or element*/
+    /*transform: scale(1.5);*/
+
+    /* this causes it to spin or flip*/
+    transform: rotatex(0deg) rotateY(360deg);
+
+}

@@ -1,0 +1,68 @@
+#container{
+    position: absolute;
+    width: 50%;
+    margin: 50px auto 0 auto;
+    text-align: center;
+}
+
+#sun{
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    width: 300px;
+
+    /* chrome = "-webkit-"*/
+    animation-name: sun-animation;
+    animation-duration:3s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+
+}
+
+
+
+/* chrome = "@-webkit-keyframes"*/
+@keyframes sun-animation{
+    from{
+        left: 100px;
+    }
+    50%{
+        top:200px;
+    }
+    to{
+        left: 300px;
+    }
+}
+
+#clouds{
+    position: absolute;
+    left: 0px;
+    top: 180px;
+    width: 200px;
+
+    /*animation-name: cloud-animation;
+    animation-duration:3s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;*/
+
+    /* this is the shorthand */
+    animation: cloud-animation 3s ease infinite alternate forwards;
+}
+
+/* chrome = "@-webkit-keyframes"*/
+@keyframes cloud-animation{
+    from{
+        left: -100px;
+    }
+    to{
+        left: 100px;
+    }
+}
+
+

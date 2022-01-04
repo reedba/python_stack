@@ -1,0 +1,55 @@
+nav{
+    position: relative;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    width: 50%;
+}
+
+
+#container{
+    position: relative;
+    width: 450px;
+    height: 400px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    border: 2px solid #000;
+}
+
+#bird{
+    position: absolute;
+    top: 70px;
+    width: 150px;
+
+    animation-name: vertical;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+
+}
+
+#bird.horz{
+    animation-name: horizontal;
+}
+
+#bird.vert{
+    animation-name: vertical;
+}
+
+#bird.play{
+    animation-play-state: running;
+}
+
+#bird.pause{
+    animation-play-state: paused;
+}
+
+@keyframes horizontal{
+    from{left:0px;}
+    to{left:250px;}
+}
+
+@keyframes vertical{
+    from{top:0px;}
+    to{top:250px;}
+}
