@@ -101,7 +101,7 @@ def all_tasks(request):
 
 def view_task(request, id):
     context = {
-        'task':Task.objects.get(id = id),
+        'task':Task.objects.get(id = id)
         
 }
     return render(request, 'view_task.html', context)

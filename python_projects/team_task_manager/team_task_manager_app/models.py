@@ -72,7 +72,7 @@ class Task(models.Model):
 class Complete(models.Model):
     completion_notes = models.TextField()
     date_completed = models.DateTimeField(null=True)
-    task = models.OneToOneField(Task, on_delete=models.CASCADE, primary_key=True)
+    task = models.ForeignKey(Task, related_name="task_notes", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     

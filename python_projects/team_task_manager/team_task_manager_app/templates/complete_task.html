@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     {% load static %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'all_tasks.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -45,7 +46,7 @@
             <h3>Title:</h3>
             <p>{{task.title}}</p>
             <h2>Due Date:</h2>
-            <h4>{{task.due_date}}</h4>
+            <p>{{task.due_date}}</p>
             </div>
 
         <div id="task_desc" class="">
@@ -58,9 +59,8 @@
             {% csrf_token %}
             <label for="">Date completed:</label>
             <input type="date" value="" name="completion_date">
-            <div id="submit_button" class="p-2 d-flex flex-column" style="width:400px">
             <label for="">Completion Notes:</label>
-            <textarea id="" cols="30" rows="10" name="completion_notes"></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="completion_notes"></textarea>
             <button class="btn btn-outline-success mt-2" style="width: 100px;">Submit</button>
         </form>
     </div>

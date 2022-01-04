@@ -29,3 +29,13 @@
 h1{
     margin-left: 190px;
 }
+
+body{
+    background-color: #D9E2EC;
+}
+
+label,h1{
+
+    font-family: "Sofia", sans-serif;
+    font-weight: bold;
+}

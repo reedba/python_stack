@@ -2,14 +2,16 @@ body{
     background-color: #D9E2EC;
 }
 
-h1{
+h3,h2,h1, label{
 
     font-family: "Sofia", sans-serif;
     font-weight: bold;
 }
 
-
-#title_input{
-    margin-left: 190px; 
+label{
+    font-size: 30px;
 }
+
+
+
 
