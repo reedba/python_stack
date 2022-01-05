@@ -1,0 +1,42 @@
+#container{
+    position: relative;
+    width: 300px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+
+    transform: perspective(400px);
+    transform-style: preserve-3d;
+}
+
+#bird{
+    width: 200px;
+    border: 1px solid red;
+    animation: bird-motion 3s linear infinite normal both;
+}
+
+#bird-container{
+    animation: bird-motion 3s linear infinite normal both;
+    transform-origin: 0% 100%;
+    transform-style: preserve-3d;
+}
+/* 2D transforms
+@keyframes bird-motion{
+    from{
+        transform: translate(0,0) rotate(0) scale(.5);
+    }
+    to{
+        transform: translate(0,250px) rotate(360deg) scale(1.5);
+    }
+}*/
+
+/* 3D transform */
+@keyframes bird-motion{
+    from{
+        transform:rotateY(0deg);
+        
+    }
+    to{
+        transform:rotateY(360deg);
+        
+    }
+}
