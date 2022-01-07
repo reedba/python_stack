@@ -8,9 +8,10 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Staatliches">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
-    <div class="header">
+    <div class="header sm-3 med-2 lg-2">
         <div id="logo">
             <div class="line">
             </div>
@@ -39,7 +40,52 @@
             <img id="content_image" src="" alt="">
         </div>
     </div>
-    
-</body>
+    <div data-aos="zoom-in" class="header sm-4">
+        <div id="logo">
+            <div class="line">
+            </div>
+            <div id="beyond" >
+                <h3>BEYOND THE</h3>
+            </div>
+            <div id="iep">
+                <h1>IEP</h1>
+            </div>
+            <div id="text">
+                <p>TRAINING FOR BEFORE AND AFTER IEP MEETINGS</p>
+            </div>
+            <div class="line">
+            </div>
+        </div>
+    </div>
+    <div class ="content sm-4">
+        <div data-aos="fade-right" class="col sm-4 med-2 content_paragraph">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, laborum quaerat, harum rem deleniti esse alias eos ipsum possimus voluptatibus nobis necessitatibus voluptate delectus doloremque corrupti sunt perspiciatis fugiat voluptatum!
+                Ab numquam, quos recusandae quod corporis, optio dolores consequuntur ipsam quaerat architecto est repudiandae error eveniet? Quas enim amet praesentium. At odit quo suscipit eaque recusandae numquam possimus magni aut!
+                A aspernatur amet, voluptatem labore exercitationem eos eum. Nam ut, quasi velit tempora ipsa, fugiat, suscipit voluptatibus praesentium rerum placeat ratione alias illum. Omnis, dolor voluptas? Molestias rerum asperiores eaque?
+            </p>
+        </div>
+        <div data-aos="fade-left" class="col sm-4 med-2 image">
+            <img id="content_image" src="" alt="">
+        </div>
+    </div>
+    <div class ="content sm-4">
+        <div class="col sm-4 med-2 content_paragraph">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, laborum quaerat, harum rem deleniti esse alias eos ipsum possimus voluptatibus nobis necessitatibus voluptate delectus doloremque corrupti sunt perspiciatis fugiat voluptatum!
+                Ab numquam, quos recusandae quod corporis, optio dolores consequuntur ipsam quaerat architecto est repudiandae error eveniet? Quas enim amet praesentium. At odit quo suscipit eaque recusandae numquam possimus magni aut!
+                A aspernatur amet, voluptatem labore exercitationem eos eum. Nam ut, quasi velit tempora ipsa, fugiat, suscipit voluptatibus praesentium rerum placeat ratione alias illum. Omnis, dolor voluptas? Molestias rerum asperiores eaque?
+            </p>
+        </div>
+        <div class="col sm-4 med-2 image">
+            <img id="content_image" src="" alt="">
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({
+        duration: 2000,
+    }); </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </html>
 </html>
