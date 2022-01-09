@@ -3,8 +3,7 @@
 
     .sm-4{
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
+        
     }
 
     .sm-3{
@@ -46,8 +45,9 @@
 
 .header{
     display: flex;
-    flex-direction: roww;
+    flex-direction: row;
     justify-content: center;
+    margin: 25px;
 }
 
 
@@ -63,14 +63,17 @@ body{
     width: 100%;
     text-align: center;
     align-items: center;
+    margin: auto;
+    padding: 25px;
+    
 
 }
 
 .line{
     border: solid black 2px;
-    width: 340px;
+    width: 100%;
     text-align: center;
-    margin: 0px;
+    margin: 25px;
     padding: 0px;
     
 }
@@ -110,7 +113,7 @@ h1{
 
 p{
     color:rgb(56, 102, 58);
-    width: 390px;
+    width: 100%;
     margin-top: 125px;
     margin-bottom: 5px;
     display: flex;
@@ -133,11 +136,12 @@ p{
 
 .content{
     display: inline-flex;
-    margin: 25px;
     width: 100%;
+    margin: 5px;
     /*border: black 2px solid;*/
     flex-direction: row;
     justify-content: space-between;
+    margin: 25px;
 }
 
 .content_paragraph{
