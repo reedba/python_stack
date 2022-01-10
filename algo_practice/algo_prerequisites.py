@@ -193,4 +193,43 @@ import math
 #
 #swap([2, 3, 5, 7, 6])
 
+#Reversing
+#Given an array X of multiple values (e.g. [-3,5,1,3,2,10]), write a program that reverses the values in the array.  Once your program is done X should be in the reserved order.  Do this without creating a temporary array.  Also, do NOT use the reverse method but find a way to reverse the values in the array (HINT: swap the first value with the last; second with the second to last and so forth).
+#
+
+#def reverse(arr):
+#    for i in range(0, 3):
+#        temp = arr[i]
+#        arr[i] = arr[len(arr)-1-i]
+#        arr[len(arr)-1-i] = temp
+#        print(arr)
+#
+#reverse([-3,5,1,3,2,10])
+
+#Insert X in Y
+#Write a program that inserts a new number X at an index Y. For example if array = [1, 3, 5, 7] and X = 10, and Y = 2, by the end of your program array should be [1, 3, 10, 5, 7] (in other words we added '10' on index 2). Check the output of your array once your program is completed to make sure it's working correctly.
+#
+
+#def insert(x,y,arr):
+#    arr.append(0)
+#    for i in range(len(arr)-1,y, -1):
+#        arr[i] = arr[i-1]
+#    arr[y] = x
+#    print(arr)
+#
+#insert(10, 2, [1, 3, 5, 7])
+
+#Removing Negatives
+#Given an array of multiple values (e.g. [0, -1, 2, -3, 4, -5, 6]), write a program that removes any negative values in that array.  Once your program is done, the array should be composed of only the non-negative numbers, in their original order.  Do this without creating a temporary array; only use the pop() method to remove values from the array.
+#
+
+
+
+#def remove(arr):
+#    for num in arr:
+#        if num < 0:
+#            arr.remove(num)
+#    print(arr)
+#
+#remove([0, -1, 2, -3, 4, -5, 6])
 
