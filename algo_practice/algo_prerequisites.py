@@ -233,3 +233,134 @@ import math
 #
 #remove([0, -1, 2, -3, 4, -5, 6])
 
+
+#def count(x,y):
+#    for i in range(x,y):
+#        print(i)
+#
+#count(1,256)
+#
+#
+#def odd_num(x,y,z):
+#    for i in range(x,y,z):
+#        print(i)
+#
+#odd_num(1,1000,2)
+
+
+#def add_odd(x,y,z):
+#    count = 0
+#    for i in range(x,y,z):
+#        count+=i
+#    print(count)
+#
+#add_odd(1,5000,2)
+
+#def iterate_arr(arr):
+#    for i in arr:
+#        print(i)
+#
+#iterate_arr([1,3,5,7,9,13])
+
+#def max(arr):
+#    max = arr[0]
+#    for i in arr:
+#        if i > max:
+#            max=i
+#    print(max)
+#
+#max([-3, 3,9, 5, 7])
+
+#def avg(arr):
+#    count = 0
+#    for i in arr:
+#        count+=i
+#    avg = count/len(arr)
+#    print(avg)
+#
+#avg([1,3,5,7,20])
+
+#def odd_arr(x,y,z):
+#    new_arr = []
+#    for i in range(x,y,z):
+#        new_arr.append(i)
+#    print(new_arr)
+#
+#odd_arr(1,256,2)
+
+#def greater(y,arr):
+#    count = 0
+#    for i in arr:
+#        if i > y:
+#            count+=1
+#    print(count)
+#
+#greater(3,[1,3, 5, 7])
+
+#def squared(arr):
+#    for i in range(0,len(arr)):
+#        arr[i] = arr[i]*arr[i]
+#    print(arr)
+#
+#squared([1,5, 10, -2])
+
+#def elim_neg(arr):
+#    for i in range(0, len(arr)):
+#        if arr[i] < 0:
+#            arr[i] = 0
+#    print(arr)
+#
+#elim_neg([1,5, 10, -2])
+
+#def max_min_avg(arr):
+#    min = arr[0]
+#    max = arr[0]
+#    sum = 0
+#    for i in range(0,len(arr)):
+#        if min > arr[i]:
+#            min = arr[i]
+#        if max < arr[i]:
+#            max = arr[i]
+#        sum+=arr[i]
+#        avg = sum/len(arr)
+#    print(min, max, avg)
+#
+#
+#
+#max_min_avg([1,5, 10, -2])
+
+#def shift(arr):
+#    temp = arr[0]
+#    arr[0]=arr[len(arr)-1]
+#    arr[len(arr)-1]=temp
+#    print(arr)
+#
+#shift([1,5, 10, 7, -2])
+
+
+#def num_string(arr):
+#    new_arr = []
+#    for num in arr:
+#        if num < 0:
+#            new_arr.append('Dojo')
+#        else:
+#            new_arr.append(num)
+#    print(new_arr)
+#
+#num_string([-1, -3, 2])
+
+
+def ran(x,y):
+    new_arr = []
+    for i in range(x,y+1):
+        rand_num = math.floor(random.random()*100)
+        new_arr.append(rand_num)
+    print(new_arr)
+
+
+ran(1,10)
+
+
+
+
+
