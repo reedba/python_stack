@@ -350,15 +350,15 @@ import math
 #num_string([-1, -3, 2])
 
 
-def ran(x,y):
-    new_arr = []
-    for i in range(x,y+1):
-        rand_num = math.floor(random.random()*100)
-        new_arr.append(rand_num)
-    print(new_arr)
-
-
-ran(1,10)
+#def ran(x,y):
+#    new_arr = []
+#    for i in range(x,y+1):
+#        rand_num = math.floor(random.random()*100)
+#        new_arr.append(rand_num)
+#    print(new_arr)
+#
+#
+#ran(1,10)
 
 
 
