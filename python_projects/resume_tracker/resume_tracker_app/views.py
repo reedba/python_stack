@@ -34,8 +34,14 @@ def login(request):
         request.session['user_id'] = User.objects.filter(email = request.POST['log_email'])[0].id
     return redirect ('/main_page')
 
+def logout(request):
+    request.session.flush()
+    return redirect('/')
+
 def main_page(request):
+    this_user = User.objects.filter(id = request.session['user_id'])
     context = {
+        'user': this_user[0],
         'this_user':User.objects.get(id = request.session['user_id']),
         'companies':Company.objects.all()
     }
@@ -49,6 +55,29 @@ def add_company(request):
 
 def resume_dets(request, id):
     context = {
+        'company':Company.objects.get(id = id),
+        'resumes':Resume_Submission.objects.all(),
+        
+    }
+    
+    return render(request,'resume_dets.html', context)
+
+def interview_dets(request, id):
+    context = {
         'company':Company.objects.get(id = id)
     }
-    return render(request,'resume_dets.html', context)
+    return render(request,'interview_dets.html', context)
+
+def favorite(request, company_id):
+    user = User.objects.get(id=request.session["user_id"])
+    company = Company.objects.get(id=company_id)
+    user.favorited_company.add(company)
+
+    return redirect('/main_page')
+
+def add_resume_dets(request, id):
+    company = Company.objects.get(id=id)
+    if request.method == 'POST':
+        resume_details = Resume_Submission.objects.create(job_title = request.POST['position'], location = request.POST['location'], follow_up = request.POST['follow_up'], poster_name = request.POST['contact_name'], date_submitted = request.POST['submitted'], poster_email = request.POST['contact_email'], skills = request.POST['skills'], poster_number = request.POST['contact_phone'], related_company = company)
+    return redirect(f'/resume_dets/{id}')
+

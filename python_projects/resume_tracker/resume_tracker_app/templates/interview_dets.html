@@ -11,51 +11,40 @@
 </head>
 <body class="shadow-lg p-3 mb-5 bg-body rounded m-4">
     <nav class="navbar navbar-light bg-light m-4 shadow-lg">
-        <button type="button" class="btn btn-outline-success m-2" data-bs-toggle="modal" data-bs-target="#add_resume">
-            Add Resume Details
+        <button type="button" class="btn btn-outline-success m-2" data-bs-toggle="modal" data-bs-target="#add_interview_dets">
+            Add Interview Details
         </button>
         <a href="/logout"><button type="button" class="btn btn-outline-dark m-2">Logout</button></a>
-        <div class="modal fade" id="add_resume" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="add_interview_dets" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Add Resume Details</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Add Interview Details</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 
                 </div>
                 <div class="modal-body">
-                    <form action="/add_resume_dets/{{company.id}}" method="POST">
+                    <form action="/add_company" method="POST">
                         {% csrf_token %}
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Location</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = 'location'>
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = ''>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Position Applied</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="position">
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="">
                           </div>
                           <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Contact Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="contact_name">
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="">
                           </div>
                           <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Contact Email</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="contact_email">
-                          </div>
-                          <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contact Phone #</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="contact_phone">
-                          </div>
-                          <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Date Submitted</label>
-                            <input type="date" class="form-control" id="exampleInputPassword1" name="submitted">
-                          </div>
-                          <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Follow Up Date</label>
-                            <input type="date" class="form-control" id="exampleInputPassword1" name="follow_up">
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="">
                           </div>
                           <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Skills Needed</label>
-                            <textarea class="form-control" aria-label="With textarea" name="skills"></textarea>
+                            <textarea class="form-control" aria-label="With textarea" name=""></textarea>
                           </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-outline-success">Submit</button>
@@ -70,10 +59,10 @@
     <div class="m-3">
         <h1 class="m-3">{{company.company}}</h1>
     </div>
-    {% for resume in resumes.all %}
+
     <div class="ms-4 shadow-lg border rounded">
         <h4 class="m-3">Position</h4>
-        <p class ="m-3">{{resume.job_title}}</p>
+        <p class ="m-3">{{Position Applied}</p>
         <h4 class="m-3">Interviewer Name/Title</h4>
         <p class ="m-3">{{Position Name/Title}</p>
         <h4 class="m-3">EMAIL</h4>
@@ -92,9 +81,10 @@
             <a href="#"><button type="button" class="btn btn-outline-info m-2">Edit Details</button></a>
             <a href="#"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
         </div>
-    </div>
-    {% endfor %}
         
+        
+
+    </div>
     
 </body>
 </html>

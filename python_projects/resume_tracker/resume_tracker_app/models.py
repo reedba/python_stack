@@ -51,3 +51,33 @@ class Company(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+
+
+class Resume_Submission(models.Model):
+    job_title = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    date_submitted = models.DateTimeField(null=True)
+    follow_up = models.DateTimeField(null=True)
+    poster_name = models.CharField(max_length=255)
+    poster_email = models.CharField(max_length=255)
+    poster_number = models.CharField(max_length=255)
+    skills = models.TextField()
+    related_company = models.ForeignKey(Company, related_name="company_connection", on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+class Interview_Details(models.Model):
+    interviewer_name = models.CharField(max_length=255)
+    interviewer_email = models.CharField(max_length=255)
+    interviewer_phone = models.CharField(max_length=255)
+    interview_date = models.DateTimeField(null=True)
+    questions_asked = models.TextField()
+    questions_to_ask = models.TextField()
+    follow_up = models.DateTimeField(null=True)
+    related_resume = models.ForeignKey(Resume_Submission, related_name="resume_connection", on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+
+
