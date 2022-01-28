@@ -61,7 +61,7 @@
                 <td>{{company.creator.first_name}} {{company.creator.last_name}}</td>
                 <td>{{company.company}}</td>
                 <td><a>{{company.website}}</a></td>
-                <td><a class="btn btn-outline-info m-1" href="/resume_dets/{{company.id}}"> Resume Submission details</a><a href="/interview_dets/{{company.id}}" class="btn btn-outline-info m-1">Interview Tracking Details</a></td>
+                <td><a class="btn btn-outline-info m-1" href="/resume_dets/{{company.id}}"> Resume Submission details</a>
                 <td><a href="/favorite/{{company.id}}" class="btn btn-outline-success m-1">Favorite</a></td>
               </tr>
               {% endif %}
@@ -70,7 +70,6 @@
           </table>
 
 
-    <!--Add Interview details Here-->
 
       <div class="modal fade" id="add_interview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

@@ -21,30 +21,37 @@
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Add Interview Details</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 
                 </div>
                 <div class="modal-body">
-                    <form action="/add_company" method="POST">
+                    <form action="/add_interview_dets/{{resume.id}}" method="POST">
                         {% csrf_token %}
                         <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Location</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = ''>
+                          <label for="exampleInputEmail1" class="form-label">Interviewer Name</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = 'interviewer_name'>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Position Applied</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="">
+                            <label for="exampleInputPassword1" class="form-label">Interviewer Email</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="interviewer_email">
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contact Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="">
+                            <label for="exampleInputPassword1" class="form-label">Interviewer Phone</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" name="interviewer_phone">
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contact Email</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" name="">
+                            <label for="exampleInputPassword1" class="form-label">Interview Date</label>
+                            <input type="date" class="form-control" id="exampleInputPassword1" name="interview_date">
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Skills Needed</label>
-                            <textarea class="form-control" aria-label="With textarea" name=""></textarea>
+                            <label for="exampleInputPassword1" class="form-label">Questions Asked</label>
+                            <textarea class="form-control" aria-label="With textarea" name="questions_asked"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Questions To Ask</label>
+                            <textarea class="form-control" aria-label="With textarea" name="questions_to_ask"></textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Follow Up Date</label>
+                            <input type="date" class="form-control" id="exampleInputPassword1" name="interview_follow_up">
                           </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-outline-success">Submit</button>
@@ -59,32 +66,33 @@
     <div class="m-3">
         <h1 class="m-3">{{company.company}}</h1>
     </div>
-
-    <div class="ms-4 shadow-lg border rounded">
-        <h4 class="m-3">Position</h4>
-        <p class ="m-3">{{Position Applied}</p>
+    {% for interview in resume.resume_connection.all %}
+    
+    <div class="m-4 shadow-lg border rounded">
+      
         <h4 class="m-3">Interviewer Name/Title</h4>
-        <p class ="m-3">{{Position Name/Title}</p>
-        <h4 class="m-3">EMAIL</h4>
-        <p class ="m-3">{{EMAIL}</p>
+        <p class ="m-3">{{interview.interviewer_name}}</p>
+        <h4 class="m-3">Interviewer Email</h4>
+        <p class ="m-3">{{interview.interviewer_email}}</p>
         <h4 class="m-3">Phone Number</h4>
-        <p class ="m-3">{{Phone Number}</p>
+        <p class ="m-3">{{interview.interviewer_phone}}</p>
         <h4 class="m-3">Interview Date/Time</h4>
-        <p class ="m-3">{{Interview Date/Time}</p>
+        <p class ="m-3">{{interview.interview_date}}</p>
         <h4 class="m-3">Questions Asked</h4>
-        <p  class="m-3"> class="ms-3"{{Questions Asked}</p>
+        <p  class="m-3">{{interview.questions_asked}}</p>
         <h4 class="m-3">Questions to Ask</h4>
-        <p class ="m-3">{{Questions to Ask}</p>
+        <p class ="m-3">{{interview.questions_to_ask}}</p>
         <h4 class="m-3">Follow up date/Thank You</h4>
-        <p class ="m-3">{{Follow up date/Thank You}</p>
+        <p class ="m-3">{{interview.follow_up}}</p>
         <div class="d-flex flex-row">
-            <a href="#"><button type="button" class="btn btn-outline-info m-2">Edit Details</button></a>
+            <a href="#"><button type="button" class="btn btn-outline-warning m-2">Edit Details</button></a>
             <a href="#"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
         </div>
         
-        
-
-    </div>
+      </div>
+  
+      {% endfor %}
+   
     
 </body>
 </html>

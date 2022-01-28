@@ -13,4 +13,9 @@ urlpatterns = [
     path('resume_dets/<int:id>', views.resume_dets),
     path('interview_dets/<int:id>', views.interview_dets),
     path('add_resume_dets/<int:id>', views.add_resume_dets),
+    path('delete/<int:id>', views.delete_resume),
+    path('edit_resume_dets/<int:id>', views.edit_resume_dets),
+    path('update_resume/<int:id>', views.update_resume_dets),
+    path('add_interview_dets/<int:id>', views.add_interview_dets),
+    path('cancel', views.cancel)
 ]

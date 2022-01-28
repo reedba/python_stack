@@ -34,7 +34,7 @@
                             <input type="text" class="form-control" id="exampleInputPassword1" name="position">
                           </div>
                           <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contact Name</label>
+                            <label for="exampleInputPassword1" class="form-label">Contact Name/Title</label>
                             <input type="text" class="form-control" id="exampleInputPassword1" name="contact_name">
                           </div>
                           <div class="mb-3">
@@ -70,27 +70,29 @@
     <div class="m-3">
         <h1 class="m-3">{{company.company}}</h1>
     </div>
-    {% for resume in resumes.all %}
+    {% for resume in company.company_connection.all %}
+    
     <div class="ms-4 shadow-lg border rounded">
         <h4 class="m-3">Position</h4>
         <p class ="m-3">{{resume.job_title}}</p>
-        <h4 class="m-3">Interviewer Name/Title</h4>
-        <p class ="m-3">{{Position Name/Title}</p>
+        <h4 class="m-3">Poster Name/Title</h4>
+        <p class ="m-3">{{resume.poster_name}}</p>
         <h4 class="m-3">EMAIL</h4>
-        <p class ="m-3">{{EMAIL}</p>
+        <p class ="m-3">{{resume.poster_email}}</p>
         <h4 class="m-3">Phone Number</h4>
-        <p class ="m-3">{{Phone Number}</p>
-        <h4 class="m-3">Interview Date/Time</h4>
-        <p class ="m-3">{{Interview Date/Time}</p>
-        <h4 class="m-3">Questions Asked</h4>
-        <p  class="m-3"> class="ms-3"{{Questions Asked}</p>
-        <h4 class="m-3">Questions to Ask</h4>
-        <p class ="m-3">{{Questions to Ask}</p>
+        <p class ="m-3">{{resume.poster_number}}</p>
+        <h4 class="m-3">Submission Date/Time</h4>
+        <p class ="m-3">{{resume.date_submitted}}</p>
+        <h4 class="m-3">Location</h4>
+        <p  class="m-3">{{resume.location}}</p>
+        <h4 class="m-3">Skills Needed</h4>
+        <p class ="m-3">{{resume.skills}}</p>
         <h4 class="m-3">Follow up date/Thank You</h4>
-        <p class ="m-3">{{Follow up date/Thank You}</p>
+        <p class ="m-3">{{resume.follow_up}}</p>
         <div class="d-flex flex-row">
-            <a href="#"><button type="button" class="btn btn-outline-info m-2">Edit Details</button></a>
-            <a href="#"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
+            <a href="/edit_resume_dets/{{resume.id}}"><button type="button" class="btn btn-outline-warning m-2">Edit Details</button></a>
+            <a href="/delete/{{resume.id}}"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
+            <a href="/interview_dets/{{resume.id}}" class="btn btn-outline-success m-2">Add Interview Details</a></td>
         </div>
     </div>
     {% endfor %}

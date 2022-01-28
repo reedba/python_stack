@@ -64,7 +64,9 @@ def resume_dets(request, id):
 
 def interview_dets(request, id):
     context = {
-        'company':Company.objects.get(id = id)
+        'resume':Resume_Submission.objects.get(id=id),
+        'interviews':Interview_Details.objects.all()
+        
     }
     return render(request,'interview_dets.html', context)
 
@@ -81,3 +83,37 @@ def add_resume_dets(request, id):
         resume_details = Resume_Submission.objects.create(job_title = request.POST['position'], location = request.POST['location'], follow_up = request.POST['follow_up'], poster_name = request.POST['contact_name'], date_submitted = request.POST['submitted'], poster_email = request.POST['contact_email'], skills = request.POST['skills'], poster_number = request.POST['contact_phone'], related_company = company)
     return redirect(f'/resume_dets/{id}')
 
+def add_interview_dets(request, id):
+    resume = Resume_Submission.objects.get(id=id)
+    if request.method == 'POST':
+        interview_details = Interview_Details.objects.create(interviewer_name = request.POST['interviewer_name'], interviewer_email = request.POST['interviewer_email'], interviewer_phone = request.POST['interviewer_phone'], interview_date = request.POST['interview_date'], questions_asked = request.POST['questions_asked'], questions_to_ask = request.POST['questions_to_ask'], follow_up = request.POST['interview_follow_up'], related_resume = resume )
+    return redirect(f'/interview_dets/{id}' )
+
+def delete_resume(request, id):
+        destroyed = Resume_Submission.objects.get(id=id)
+        destroyed.delete()
+        return redirect('/main_page')
+
+def edit_resume_dets(request, id):
+    resume = Resume_Submission.objects.get(id=id)
+    context = {
+        'resume':resume
+    }
+    return render(request, 'edit_resume_dets.html', context)
+
+def cancel(request):
+    return redirect('/main_page')
+
+def update_resume_dets(request, id):
+    edit_resume = Resume_Submission.objects.get(id=id)
+
+    edit_resume.job_title = request.POST['update_job_title']
+    edit_resume.location = request.POST['update_location']
+    edit_resume.date_submitted = request.POST['update_date_submitted']
+    edit_resume.follow_up = request.POST['update_follow_up']
+    edit_resume.poster_name = request.POST['update_poster_name']
+    edit_resume.poster_email = request.POST['update_poster_email']
+    edit_resume.poster_number = request.POST['update_poster_number']
+    edit_resume.skills = request.POST['update_skills']
+    edit_resume.save()
+    return redirect('/main_page')
