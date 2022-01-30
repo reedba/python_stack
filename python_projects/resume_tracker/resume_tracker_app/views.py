@@ -18,7 +18,7 @@ def register(request):
         #hash the password
         hashed_pw = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
         #create a user
-        new_user = User.objects.create(first_name = request.POST['first_name'],last_name = request.POST['last_name'],email =    request.POST['email'], password = hashed_pw)
+        new_user = User.objects.create(first_name = request.POST['first_name'],last_name = request.POST['last_name'],email = request.POST['email'], password = hashed_pw)
         #create a session
         request.session['user_id'] = new_user.id
         return redirect('/')
@@ -40,10 +40,14 @@ def logout(request):
 
 def main_page(request):
     this_user = User.objects.filter(id = request.session['user_id'])
+    resumes = Resume_Submission.objects.filter(user_resumes = this_user[0])
+    resume_count = resumes.count()
+
     context = {
         'user': this_user[0],
         'this_user':User.objects.get(id = request.session['user_id']),
-        'companies':Company.objects.all()
+        'companies':Company.objects.all(),
+        'resume_count':Resume_Submission.objects.filter(user_resumes = request.session['user_id'])
     }
     return render(request,'main_page.html',context)
 
@@ -79,8 +83,9 @@ def favorite(request, company_id):
 
 def add_resume_dets(request, id):
     company = Company.objects.get(id=id)
+    user = User.objects.get(id=request.session["user_id"])
     if request.method == 'POST':
-        resume_details = Resume_Submission.objects.create(job_title = request.POST['position'], location = request.POST['location'], follow_up = request.POST['follow_up'], poster_name = request.POST['contact_name'], date_submitted = request.POST['submitted'], poster_email = request.POST['contact_email'], skills = request.POST['skills'], poster_number = request.POST['contact_phone'], related_company = company)
+        resume_details = Resume_Submission.objects.create(job_title = request.POST['position'], location = request.POST['location'], follow_up = request.POST['follow_up'], poster_name = request.POST['contact_name'], date_submitted = request.POST['submitted'], poster_email = request.POST['contact_email'], skills = request.POST['skills'], poster_number = request.POST['contact_phone'], related_company = company, user_resumes = user)
     return redirect(f'/resume_dets/{id}')
 
 def add_interview_dets(request, id):
@@ -117,3 +122,25 @@ def update_resume_dets(request, id):
     edit_resume.skills = request.POST['update_skills']
     edit_resume.save()
     return redirect('/main_page')
+
+
+def edit_interview_dets(request, id):
+    interview = Interview_Details.objects.get(id=id)
+    context = {
+        'interview':interview
+    }
+    return render(request, 'edit_interview_dets.html', context)
+
+
+def update_interview_dets(request, id):
+    edit_interview = Interview_Details.objects.get(id=id)
+    edit_interview.interviewer_name = request.POST['update_interviewer_name']
+    edit_interview.interviewer_email = request.POST['update_interviewer_email']
+    edit_interview.interviewwer_phone = request.POST['update_interviewer_phone']
+    edit_interview.interview_date = request.POST['update_interview_date']
+    edit_interview.questions_asked = request.POST['update_questions_asked']
+    edit_interview.questions_to_ask = request.POST['update_questions_to_ask']
+    edit_interview.interview_follow_up = request.POST['update_interview_follow_up']
+    edit_interview.save()
+    return redirect('/main_page')
+    

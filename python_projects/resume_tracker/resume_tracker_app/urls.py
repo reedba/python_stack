@@ -17,5 +17,7 @@ urlpatterns = [
     path('edit_resume_dets/<int:id>', views.edit_resume_dets),
     path('update_resume/<int:id>', views.update_resume_dets),
     path('add_interview_dets/<int:id>', views.add_interview_dets),
-    path('cancel', views.cancel)
+    path('cancel', views.cancel),
+    path('edit_interview_dets/<int:id>', views.edit_interview_dets),
+    path('update_interview_dets/<int:id>', views.update_interview_dets)
 ]
