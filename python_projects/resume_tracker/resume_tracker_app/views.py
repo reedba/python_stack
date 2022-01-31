@@ -40,13 +40,15 @@ def logout(request):
 
 def main_page(request):
     this_user = User.objects.filter(id = request.session['user_id'])
-    resumes = Resume_Submission.objects.filter(user_resumes = this_user[0])
-    resume_count = resumes.count()
-
+    if 'q' in request.GET:
+        q = request.GET['q']
+        company = Company.objects.filter(company__icontains=q)
+    else:
+        company = Company.objects.all()
     context = {
         'user': this_user[0],
         'this_user':User.objects.get(id = request.session['user_id']),
-        'companies':Company.objects.all(),
+        'companies':company,
         'resume_count':Resume_Submission.objects.filter(user_resumes = request.session['user_id'])
     }
     return render(request,'main_page.html',context)
@@ -91,7 +93,7 @@ def add_resume_dets(request, id):
 def add_interview_dets(request, id):
     resume = Resume_Submission.objects.get(id=id)
     if request.method == 'POST':
-        interview_details = Interview_Details.objects.create(interviewer_name = request.POST['interviewer_name'], interviewer_email = request.POST['interviewer_email'], interviewer_phone = request.POST['interviewer_phone'], interview_date = request.POST['interview_date'], questions_asked = request.POST['questions_asked'], questions_to_ask = request.POST['questions_to_ask'], follow_up = request.POST['interview_follow_up'], related_resume = resume )
+        interview_details = Interview_Details.objects.create(interviewer_name = request.POST['interviewer_name'], interviewer_email = request.POST['interviewer_email'], interviewer_phone = request.POST['interviewer_phone'], interview_date = request.POST['interview_date'], questions_asked = request.POST['questions_asked'], questions_to_ask = request.POST['questions_to_ask'], interview_follow_up = request.POST['interview_follow_up'], related_resume = resume)
     return redirect(f'/interview_dets/{id}' )
 
 def delete_resume(request, id):

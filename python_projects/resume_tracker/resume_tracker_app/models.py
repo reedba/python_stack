@@ -1,6 +1,8 @@
+from email.policy import default
 from typing import ItemsView
 from django.db import models
 import re
+from django import forms
 
 from django.db.models.fields.related import ManyToManyField 
 import bcrypt 
@@ -71,11 +73,11 @@ class Interview_Details(models.Model):
     interviewer_name = models.CharField(max_length=255)
     interviewer_email = models.CharField(max_length=255)
     interviewer_phone = models.CharField(max_length=255)
-    interview_date = models.DateTimeField(null=True)
+    interview_date = models.DateTimeField()
     questions_asked = models.TextField()
     questions_to_ask = models.TextField()
-    interview_follow_up = models.DateTimeField(null=True)
-    related_resume = models.ForeignKey(Resume_Submission, related_name="resume_connection", on_delete=models.CASCADE)
+    interview_follow_up = models.DateTimeField()
+    related_resume = models.ForeignKey(Resume_Submission, related_name= "resume_connection", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

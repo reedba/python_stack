@@ -11,9 +11,19 @@
 </head>
 <body class="shadow-lg p-3 mb-5 bg-body rounded m-4 ">
     <nav class="navbar navbar-light bg-light m-4 shadow-lg">
-        <button type="button" class="btn btn-outline-success m-2" data-bs-toggle="modal" data-bs-target="#add_company">
-            Add Company
+      <div>
+        <button type="button" class="btn btn-outline-info m-2"  href="" >
+          Favorites
         </button>
+        <button type="button" class="btn btn-outline-success m-2" data-bs-toggle="modal" data-bs-target="#add_company">
+              Add Company
+        </button>
+      </div>
+      <form class="d-flex">
+        {% csrf_token %}
+        <input class="form-control me-2" name= "q" type="search" placeholder="Search Company Name" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
         <a href="/logout"><button type="button" class="btn btn-outline-dark m-2">Logout</button></a>
         <div class="modal fade" id="add_company" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
