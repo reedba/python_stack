@@ -146,3 +146,14 @@ def update_interview_dets(request, id):
     edit_interview.save()
     return redirect('/main_page')
     
+
+def favorites(request):
+    this_user = User.objects.filter(id = request.session['user_id'])
+    company = Company.objects.all()
+    context = {
+        'user': this_user[0],
+        'this_user':User.objects.get(id = request.session['user_id']),
+        'companies':company,
+        'resume_count':Resume_Submission.objects.filter(user_resumes = request.session['user_id'])
+    }
+    return render(request,'favorites.html',context)

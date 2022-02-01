@@ -11,9 +11,12 @@
 </head>
 <body class="shadow-lg p-3 mb-5 bg-body rounded m-4">
     <nav class="navbar navbar-light bg-light m-4 shadow-lg">
+      <div>
+      <a href="/main_page"><button type="button" class="btn btn-outline-primary m-2">All Companies</button></a>
         <button type="button" class="btn btn-outline-success m-2" data-bs-toggle="modal" data-bs-target="#add_interview_dets">
             Add Interview Details
         </button>
+      </div>
         <a href="/logout"><button type="button" class="btn btn-outline-dark m-2">Logout</button></a>
         <div class="modal fade" id="add_interview_dets" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -86,7 +89,6 @@
         <p class ="m-3">{{interview.interview_follow_up}}</p>
         <div class="d-flex flex-row">
             <a href="/edit_interview_dets/{{interview.id}}"><button type="button" class="btn btn-outline-warning m-2">Edit Interview Details</button></a>
-            <a href="#"><button type="button" class="btn btn-outline-danger m-2">Delete</button></a>
         </div>
         
       </div>

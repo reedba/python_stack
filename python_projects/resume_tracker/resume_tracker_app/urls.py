@@ -19,5 +19,6 @@ urlpatterns = [
     path('add_interview_dets/<int:id>', views.add_interview_dets),
     path('cancel', views.cancel),
     path('edit_interview_dets/<int:id>', views.edit_interview_dets),
-    path('update_interview_dets/<int:id>', views.update_interview_dets)
+    path('update_interview_dets/<int:id>', views.update_interview_dets),
+    path('favorites', views.favorites)
 ]
