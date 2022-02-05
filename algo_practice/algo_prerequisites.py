@@ -361,6 +361,46 @@ import math
 #ran(1,10)
 
 
+#def mult_three():
+#    for i in range(-300, 0, 3):
+#        if i == -3 or i == -6:
+#            pass
+#        else:
+#            print(i)
+#
+#mult_three()
+
+#def integers():
+#    i = 2000
+#    while i < 5280:
+#        i += 1
+#        print(i)
+#
+#integers()
+
+
+#def dojo(x,y):
+#    for i in range(x, y):
+#        if i % 10 == 0:
+#            print('Dojo')
+#        elif i % 5 == 0:
+#            print('Coding')
+#        else:
+#            print(i)
+#
+#
+#dojo(1,100)
+
+def mult(low, high, mult):
+    for i in range(high, low, -mult):
+        print(i)
+
+mult(2,9,3)
+
+
+
+
+
 
 
 
