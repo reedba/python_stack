@@ -391,11 +391,59 @@ import math
 #
 #dojo(1,100)
 
-def mult(low, high, mult):
-    for i in range(high, low, -mult):
-        print(i)
+#def mult(low, high, mult):
+#    for i in range(high, low, -mult):
+#        print(i)
+#
+#mult(2,9,3)
 
-mult(2,9,3)
+#def element(arr):
+#    for i in range(len(arr)-1, 0, -1):
+#        print(i)
+#        
+#
+#element([5,8,1,3,2,0])
+
+#def sum_first(arr):
+#    print(arr[0]+len(arr))
+#
+#sum_first(['What?',8,1,3,2,0])
+
+#def val_greater(arr):
+#    count = 0
+#    for i in range(len(arr)-1,-1, -1):
+#        if len(arr) > 1:
+#            num1 = arr[i-1]
+#            num2 = arr[i]
+#            if num1 < num2:
+#                count+=1
+#                print(arr[i])
+#        else:
+#            print('not long enough')
+#    print(f'count = {count}')
+#
+#
+#val_greater([9,3,21,20,33,1,2,4])
+
+#def fit_value(arr):
+#    if arr[0] == len(arr):
+#        print('Just Right')
+#    elif arr[0] < len(arr):
+#        print('Too Small')
+#    else:
+#        print('Too Big')
+#    
+#
+#fit_value([4,5,1])
+
+#def fahrenheight(ftemp):
+#
+#    num1 = ftemp - 32
+#    num2 = 5/9
+#    celsius = num1*num2
+#    print(celsius)
+#
+#fahrenheight(23)
 
 
 
