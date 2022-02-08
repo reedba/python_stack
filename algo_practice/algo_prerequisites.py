@@ -445,7 +445,109 @@ import math
 #
 #fahrenheight(23)
 
+#def biggie(arr):
+#    for i in range(0, len(arr)):
+#        if arr[i] < 0:
+#            arr[i] = 'big'
+#    print(arr)
+#
+#biggie([-1,3,5,-5])
 
+
+#def low_high(arr):
+#    num1 = 0
+#    num2 = 0
+#    for i in range(0, len(arr)):
+#        if arr[i] > num1:
+#            num1 = arr[i]
+#        if arr[i] < num2:
+#            num2 = arr[i]
+#    print(f'lownum is {num2}')
+#    return num1
+#    
+#
+#
+#low_high([-1,3,5,-5])
+
+#def this(arr):
+#    print(arr[len(arr)-2])
+#    for i in range(0, len(arr)):
+#        if arr[i]%2 != 0:
+#            print(arr[i])
+#            return arr[i]
+#
+#
+#this([2,2,2,1,2,2,1])
+
+#def double(arr):
+#    for i in range(0, len(arr)):
+#        arr[i] = arr[i] + arr[i]
+#
+#    return arr
+#
+#
+#double([2,2,2,1,2,2,1])
+
+#def count_pos(arr):
+#    count = 0
+#    for i in range(0, len(arr)):
+#        if arr[i] > 0:
+#            count+=1
+#    arr[len(arr)-1] = count
+#    print(arr)
+#    return arr
+#
+#count_pos([-1,9,3,5,-5,10])
+
+#def even_odd(arr):
+#    odd_count = 0
+#    even_count = 0
+#    for i in range(0, len(arr)):
+#        if arr[i]%2 != 0:
+#            odd_count+=1
+#            if odd_count == 3:
+#                print('Thats Odd')
+#        else:
+#            odd_count = 0
+#        if arr[i]%2 == 0:
+#            even_count+=1
+#            if even_count == 3:
+#                print('Thats Even More So')
+#        else:
+#            even_count = 0
+#        
+#        print(f'odd count is {odd_count}')
+#        print(f'even count is {even_count}')
+#        
+#
+#
+#even_odd([2,2,2,5,5,-5,10,10,10])
+
+
+#def zip_it(arr):
+#    for i in range(0, len(arr)):
+#        for j in range(i +1, len(arr)):
+#            if arr[i] > arr[j]:
+#                arr[i], arr[j] = arr[j], arr[i]
+#                print(arr)
+#    
+#zip_it([7,6,5,4,3,2,1])
+
+
+def sky_high(arr):
+    new_arr = []
+    num = 0
+    for i in range(0, len(arr)):
+        for j in range(i, len(arr)):
+            if arr[i] > 0 and arr[i] > num:
+                num = arr[i]
+                new_arr.append(arr[i])
+    print(new_arr)
+    
+
+
+
+sky_high([0,4])
 
 
 
