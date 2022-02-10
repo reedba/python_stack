@@ -524,14 +524,19 @@ import math
 #even_odd([2,2,2,5,5,-5,10,10,10])
 
 
-#def zip_it(arr):
-#    for i in range(0, len(arr)):
-#        for j in range(i +1, len(arr)):
-#            if arr[i] > arr[j]:
-#                arr[i], arr[j] = arr[j], arr[i]
-#                print(arr)
-#    
-#zip_it([7,6,5,4,3,2,1])
+def zip_it(arr):
+    # Loop through the array the first time
+    for i in range(0, len(arr)):
+        #Loop through the array the second time starting at index of 1 (Hence i+1) => meaning it keeps 1 ahead of the original index number
+        for j in range(i+1, len(arr)):
+            #If the first number at I is greater than J
+            if arr[i] > arr[j]:
+                #Swap Values in the array
+                arr[i], arr[j] = arr[j], arr[i]
+                #print the original array
+                print(arr)
+    
+zip_it([7,6,5,4,3,2,1])
 
 
 def sky_high(arr):
@@ -545,9 +550,7 @@ def sky_high(arr):
     print(new_arr)
     
 
-
-
-sky_high([0,4])
+sky_high([0,4,1,9,3,3,3,10])
 
 
 

@@ -6,7 +6,7 @@ import bcrypt
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'register.html')
 
 def register(request):
     if request.method == 'POST':
@@ -21,8 +21,11 @@ def register(request):
         new_user = User.objects.create(first_name = request.POST['first_name'],last_name = request.POST['last_name'],email = request.POST['email'], password = hashed_pw)
         #create a session
         request.session['user_id'] = new_user.id
-        return redirect('/')
-    return redirect('/main_page')
+        return redirect('/login_page')
+    return redirect('/login_page')
+
+def login_page(request):
+    return render(request, 'login_page.html')
 
 def login(request):
     if request.method == 'POST':
