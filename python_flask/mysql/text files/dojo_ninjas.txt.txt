@@ -1,0 +1,58 @@
+-- This will insert dojo names in the dojo table 
+
+INSERT INTO dojos ( dojo_name )
+VALUES ('Livewire');
+INSERT INTO dojos ( dojo_name )
+VALUES ('Code Wars');
+INSERT INTO dojos ( dojo_name )
+VALUES ('Function Gangsta');
+
+-- This deletes all the first dojo names with ids 1-3
+DELETE FROM dojos
+WHERE id = 1; 
+DELETE FROM dojos
+WHERE id = 2; 
+DELETE FROM dojos
+WHERE id = 3; 
+
+-- This will again select all the dojos
+SELECT * FROM dojos;
+
+-- I reinserted the dojos names but now they have ids 4-6
+INSERT INTO dojos ( dojo_name )
+VALUES ('Livewire');
+INSERT INTO dojos ( dojo_name )
+VALUES ('Code Wars');
+INSERT INTO dojos ( dojo_name )
+VALUES ('Function Gangsta');
+
+-- again retrieves all the dojos data
+SELECT * FROM dojos;
+
+
+-- This inserts ninja names into the ninja table and connecting them with the Dojo id
+INSERT INTO ninjas (first_name,last_name,age,Dojo_id)
+VALUES ("Luke","Skywalker",21,4),("Anakin","Skywalker",16,4),("Ren","Skywalker",28,4);
+INSERT INTO ninjas (first_name, last_name, age, Dojo_id)
+VALUES ("Qui Gon", "Jin", 54, 5), ("Yoda", "Green", 205, 5),("Obi Wan", "Kenobi", 72, 5);
+INSERT INTO ninjas (first_name, last_name, age, Dojo_id)
+VALUES ("Darth", "Maul", 102, 6),("Darth", "Vader", 143, 6),("Darth", "Sidious", 85, 6);
+
+-- line 44 selects all data from dojos 
+-- line 45 joins the left table (ninjas) to dojo id to ninjas connecting dojo_id
+-- line 46 retrieves all the ninjas from the dojo with the id of 4 
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.Dojo_id
+WHERE dojos.id = 4;
+
+-- line 51 Select all the data from dojos
+-- line 52 Join the left ninja table with dojo id with the ninja and dojo id its connected with
+-- line 53 in the dojos id (select id data from dojos in order by the id, desc limiting to 1 dojo id)
+SELECT * FROM dojos
+LEFT JOIN ninjas ON dojos.id = ninjas.Dojo_id
+WHERE dojos.id = (SELECT id FROM dojos ORDER BY id DESC LIMIT 1);
+
+-- line 57 select all data from dojos
+-- in dojo id select dojo id, from ninjas order by the dojo id, in descending order, limiting to 1
+SELECT * FROM dojos
+WHERE dojos.id = (SELECT Dojo_id FROM ninjas ORDER BY Dojo_id DESC LIMIT 1);

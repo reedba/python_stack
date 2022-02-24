@@ -1,0 +1,79 @@
+-- inserts values in the author table (author names)
+INSERT INTO authors (name)
+VALUES ('Jane Austen'), ('Emily Dickinson'), ('Fyodor Dostoevsky'), ('William Shakespeare'), ( 'Lau Tzu');
+
+-- Inserts the book title and number of pages into the book table
+INSERT INTO books (title, num_pages)
+VALUES ('C Sharp', 105),('Java', 132),('Python', 245),('PHp', 320),('Ruby', 10045);
+
+
+-- selects all data from the books table
+SELECT * FROM books;
+
+
+-- selects all data from the authors table
+SELECT * FROM authors;
+
+-- updates the book title to c# with the id of 1
+UPDATE books SET title = 'C#'
+WHERE id = 1;
+
+
+-- selects all the data from the book table that has a title of c#
+SELECT * FROM books
+WHERE title = 'C#';
+
+-- selects all the data in the authors table
+SELECT * FROM authors;
+
+-- updates the name data in the author table with an id that is 4
+UPDATE authors SET name = 'Bill Shakespeare'
+WHERE id = 4;
+
+
+-- selects all data from the authors table with the name of bill shakespeare
+SELECT * FROM authors
+WHERE name = 'Bill Shakespeare';
+
+
+-- selects all the data in the authors table
+SELECT * FROM authors;
+
+
+-- this will match up the author to which book they favorited by there id
+INSERT INTO favorites (author_id, book_id)
+VALUES (1,1), (1,2),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3),(3,4),(4,1),(4,2),(4,3), (4,4), (4,5);
+
+
+-- line 52 selects all data from books
+-- line 53 joins favorites table with books.id(book table id) to the favorite.book_id (id in the favorites table)
+-- line 54 joins authors by the authors.id(author table id) to favorites.author_id (id in the favorites table)
+
+SELECT * FROM books
+JOIN favorites ON books.id = favorites.book_id
+JOIN authors ON authors.id = favorites.author_id
+WHERE books.id = 3;
+
+-- Has the author with the id of 5 favoriting the book with the id of 2
+INSERT INTO favorites(author_id, book_id)
+VALUES (5,2);
+
+-- This will delete from the favorites table what connects the author_id(these are the ids in the favorites table) that favorited the book_id of three
+DELETE FROM favorites
+WHERE book_id = 3
+AND author_id = 2;
+
+-- line 71 selects all the data from the authors table
+-- line 72 joins the favorites with the authors.id to the favorites.author_id in the corresponding id
+--
+--
+
+SELECT * FROM authors
+JOIN favorites ON authors.id = favorites.author_id
+JOIN books ON books.id = favorites.book_id
+WHERE authors.id = 3;
+
+SELECT * FROM books
+JOIN favorites ON books.id = favorites.book_id
+JOIN authors ON authors.id = favorites.author_id
+WHERE books.id = 2;

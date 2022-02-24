@@ -1,0 +1,53 @@
+
+-- This selects the databse you will query
+USE mydb;
+
+-- Below will insert the data into the database, id will auto input and the datetime will also if you set it to do so
+
+INSERT INTO user (f_name, l_name, email) 
+VALUES('Brandon', 'Reed', 'reed@yahoo.com');
+INSERT INTO user (f_name, l_name, email) 
+VALUES('Jackie', 'Maxey', 'maxey@yahoo.com');
+INSERT INTO user (f_name, l_name, email) 
+VALUES('Noah', 'Reed', 'noah@yahoo.com');
+
+
+-- THis will select all the info from the user table
+SELECT * FROM user;
+
+-- This will select all the data from the user with the id of 1
+SELECT * FROM user
+WHERE user_id=1;
+
+
+-- This will display and selct the user with this email adress
+SELECT * FROM users
+WHERE email = 'adion@codingdojo.com';
+
+-- This will select all the data from the user with an id of 3
+SELECT * FROM user
+WHERE user_id = 3;
+
+-- This will update the dtabase within the user table changed the last name to pancakes for the user with an id of 3
+UPDATE mydb.user SET
+l_name = 'Pancakes'
+WHERE user_id = 3;
+
+
+-- Again selects all the user table information with the id of 3
+SELECT * FROM user
+WHERE user_id = 3;
+
+
+-- This will delete the data input from the user table with an id of 2
+DELETE FROM user WHERE user_id = 2;
+
+SELECT * FROM user;
+
+-- This will select the first name data in the user database table and order it in alphabetical order according to the first name
+SELECT f_name FROM user
+ORDER BY f_name;
+
+-- This will do the samae thing as the last but in freverse alphabetical order
+SELECT f_name FROM user
+ORDER BY f_name DESC;

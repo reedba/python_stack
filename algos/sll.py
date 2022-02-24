@@ -1,12 +1,12 @@
 
 
-class Node: # Singly Linked List Node Class
+class Node: # Singly Linked List Node Class                                   ////////Build the Node first
     def __init__(self, num):
         self.data = num #holds the value for the node
         self.next = None #Pointer to the next node
 
 
-class SLL: #Singly Linked list class itself
+class SLL: #Singly Linked list class itself                                   ////////Build the list second---------make sure to set tis to a variable
     def __init__(self): #This will start with no nodes
         self.head=None #Head points to the first node
 
@@ -75,44 +75,44 @@ class SLL: #Singly Linked list class itself
                 runner = runner.next #Then runner will be the next value in the list
         return self #return self so the values will be returned
 
-    def max(self):
-        if self.head == None:
+    def max(self):# This method will find teh max
+        if self.head == None:# if the ehad is equla to none print no values
             print('No values')
         else:
-            runner = self.head
-            max = self.head.data
-            while runner.next != None:
-                if runner.next.data > max:
-                    max = runner.next.data
-                runner = runner.next
+            runner = self.head #or else runner is set to the head node
+            max = self.head.data #the max variable is set to the head data value
+            while runner.next != None: #while loop -> runner.next is not equal to none run the loop
+                if runner.next.data > max: # if the runner next data is greater than the max
+                    max = runner.next.data # tyhe max varianle will be set to this value
+                runner = runner.next #then we will run to the next runner in the list
             print(max)
-            return self
+            return self #make sure to return self
 
     def min(self):
-        if self.head == None:
+        if self.head == None: #sets the case to if no value is in the ehad node print no values
             print('No values')
         else:
-            runner = self.head
-            min = self.head.data
-            while runner.next != None:
-                if runner.next.data < min:
-                    min = runner.next.data
-                runner = runner.next
-            print(min)
-            return self
+            runner = self.head # else start the runner at the head node
+            min = self.head.data #set the min value to the self . head data value
+            while runner.next != None: #while there is a next runner and it is not equal to none run this loop
+                if runner.next.data < min: #if the runner data value is less than min
+                    min = runner.next.data #set it to the mi variable
+                runner = runner.next #move to the next runner in the list
+            print(min) #print min variable
+            return self #return self
 
 
-    def avg(self):
-        sum = 0
-        count = 0
-        runner = self.head
-        while(runner):
-            sum+=runner.data
-            count+=1
-            runner = runner.next
-        average = sum/count
-        print(average)
-        return self
+    def avg(self): #This will return the average in the list
+        sum = 0 # sum variable equals 0
+        count = 0 # The count is equal to 0
+        runner = self.head #set the runner to the head node
+        while(runner): # while there is a runner run the loop
+            sum+=runner.data # add the runner data value to the sum variable
+            count+=1 # every time the loop runs add 1, this counts how many nodes are in the list
+            runner = runner.next # Move to the next node in the list
+        average = sum/count # this variable stores the average
+        print(average) # print average
+        return self # return itself
 
     def remove_dups(self):
         new_values = [self.head.data]
@@ -134,33 +134,33 @@ class SLL: #Singly Linked list class itself
                 runner = runner.next
             return self
     
-    def back(self):
-        if self.head == None:
+    def back(self): #this will return the last node in the list
+        if self.head == None: #edge case self.head has no value return no values/self
             print('No Values')
             return self
-        if self.head.next == None:
-            print('you only have one node in the list')
+        if self.head.next == None: #if the next node is equal to none return you only have one node in the list
+            print(f'you only have one node in the list {self.head}')
             return self
         else:
-            runner = self.head
-            while runner.next:
-                runner = runner.next
-            print(runner.data)
-            return runner.data
+            runner = self.head #first set the runner to the ehad node/// aka the start
+            while runner.next: #while there is a runner.next or node next to the ehad node 
+                runner = runner.next #runner will the equal the next runner in the list /// this will run til you get to the last node in the list
+            print(runner.data) #you will then print the last node in the list
+            return runner.data #return the runner value in the list
 
-    def remove_back(self):
-        if self.head == None:
+    def remove_back(self): #This will rmove the last node value in the list
+        if self.head == None: #if self.head is equal to none /// aka no first node return/print no values
             print('No Values')
             return self
-        if self.head.next == None:
+        if self.head.next == None: #if the next node to the first node is equal to none then return you only have one node in the list
             print('You only have one node in the list')
-            return self
+            return self #return the print statement/ self
         else:
-            runner = self.head
-            while runner.next.next:
-                runner = runner.next
-            runner.next = None
-            return self
+            runner = self.head #else set the runner at the first node in the list
+            while runner.next.next: #run this while there is a runner next value next value
+                runner = runner.next #mov the runner to the next node
+            runner.next = None #when it reaches the last node set the last node to equal none
+            return self #return itself
 
 
 
@@ -171,7 +171,7 @@ class SLL: #Singly Linked list class itself
             
 
             
-list1 = SLL() #We are setting a variable to the Singly Linked List Function
+list1 = SLL() #We are setting a variable to the Singly Linked List Function so thatwe can call on it with OOP
 
 
 #list1.add_front(20)
