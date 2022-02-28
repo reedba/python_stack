@@ -1,0 +1,48 @@
+#page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gold_total{
+    display: flex;
+    flex-direction: inline;
+    align-items: center;
+}
+
+#top_box{
+    border: 2px black solid;
+    width: 70px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+#all_actions{
+    border: 2px black solid;
+    height: 200px;
+    width: 200px;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: inline;
+}
+
+.action_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    border: 2px black solid;
+}
+
+h1,p,button{
+    padding: 10px;
+    margin: 10px;
+}
+
+#results{
+    border: black 2px solid;
+    width: 1200px;
+    height: 300px;
+    margin: 10px;
+}

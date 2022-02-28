@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="page">
+        <div class="gold_total">
+            <p>Your Gold:</p>
+            <div id="top_box">{{session['gold_total']}}</div>
+            <p>Number of moves:</p>
+            <div id="top_box">{{session['moves']}}</div>
+        </div>
+        <div>
+            <h2>You must achieve 500 in less than 15 turns</h2>
+        </div>
+        <div id="all_actions">
+            <div class="action_box">
+                <h1>Farm</h1>
+                <p>(earns 10-20 Gold)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="ninja_form" value="farm">
+                    <button type="submit"> Find Gold!</button>
+                </form>
+            </div>
+            <div class="action_box">
+                <h1>Cave</h1>
+                <p>(earns 5-10 Gold)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="ninja_form" value="cave">
+                    <button type="submit"> Find Gold!</button>
+                </form>
+            </div>
+            <div class="action_box">
+                <h1>House</h1>
+                <p>(earns 2-5 Gold)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="ninja_form" value="house">
+                    <button type="submit"> Find Gold!</button>
+                </form>
+            </div>
+            <div class="action_box">
+                <h1>Casino</h1>
+                <p>(earns/takes 0-50 Gold)</p>
+                <form action="/process_money" method="POST">
+                    <input type="hidden" name="ninja_form" value="casino">
+                    <button type="submit"> Find Gold!</button>
+                </form>
+            </div>
+        </div>
+        <div id="results">
+            {% for activity in list %}
+                {{activity}}
+            {% endfor %}
+        </div>
+        <div>
+            {% if session['moves'] == 15 %}
+            <form action="/reset">
+                <button type="submit">RESET GAME</button>
+            </form> 
+            {% endif %}
+        </div>
+    </div>
+    
+</body>
+</html>
