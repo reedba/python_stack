@@ -1,0 +1,64 @@
+Close Icon
+Books
+README.md
+books
+Pipfile
+Pipfile.lock
+flask_app
+__init__.py
+config
+controllers
+models
+templates
+authors.html
+books.html
+show_author.html
+show_book.html
+server.py
+Video Walkthrough
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Show Author</title>
+</head>
+<body>
+    <div class="d-flex justify-content-around flex-wrap">
+        <div class="col-6">
+            <h2 class="text-center">{}'s Favorite Books</h2>
+            <table class="table table-warning">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th># of Pages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        <tr>
+                            <td>{}</td>
+                            <td>{}</td>
+                        </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+        <form action="#" method="post" class="col-6">
+            <h2 class="text-info">Add Author's Favorite</h2>
+            <input type="hidden" name="author_id" value="{}">
+            <div class="form-group">
+                <label for="book_id">Book:</label>
+                <select name="book_id" class="form-control" >
+                   
+                        <option value="{}">{}</option>
+                   
+                </select>
+            </div>
+            <input type="submit" value="Add Book" class="btn btn-primary">
+        </form>
+    </div>
+</body>
+</html>
