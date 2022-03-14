@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body class="d-flex justify-content-center">
+    <div class="d-flex justify-content-between">
+            <!-- Head of the assignment-->
+                <div class="d-flex flex-column align-items-center">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <h1 class="d-flex align-items-center m-3">Coding Dojo Wall</h1>
+                        <div class="d-flex flex-row align-items-center m-3">
+                            <h2 class="d-flex flex-row align-items-center m-3">Welcome, {{user.first_name}}</h2>
+                            <a href="/logout" class="d-flex align-items-center m-3">Logout</a>           
+                        </div>
+                    </div>
+                    <!-- Body of the assignment-->
+                    <div class="d-flex flerx flex-row">
+                        <!--messages-->
+                        <div class="d-flex flex-column m-3">
+                            <h3>{num} message(s) for you</h3>
+                            {% for message in messages %}
+                            <div class="d-flex flex-row justify-content-between">
+                                <div>
+                                    <p>{messsage.message} said</p>
+                                    <p> {message}</p>
+                                </div>
+                                <div>
+                                    <a href="">Delete</a>
+                                </div>
+                            </div>
+                            {% endfor %} 
+                        </div>
+                        <!--users to send messages to-->
+                        <div>
+                            <div class="d-flex flex-column m-3">
+                                <h3>Send Messages</h3>
+                                <div class="d-flex flex-row justify-content-between">
+                                    <div class="d-flex flex row">
+                                    {% for user in users %}
+                                        {% if user.id != session.user_id %}
+                                        <form action="/post_message" class="d-flex flex-row m-3" methods="POST">
+                                            <label for="">Message {{user.first_name}}</label>
+                                            <textarea name="message" id="" cols="30" rows="3"></textarea>
+                                            <input type="hidden" class="m-3" name="sender_id" value="{{session.user_id}}">
+                                            <input type="hidden" class="m-3" name="reciever_id" value="{{user.id}}">
+                                            <button class="btn btn-primary m-3">Send</button>
+                                        </form>
+                                        {% endif %}
+                                    {% endfor %}
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            
+        
+    </div>  
+</body>
+</html>

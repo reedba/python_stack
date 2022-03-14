@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Registration</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+</head>
+<body class="d-flex flex-column align-items-center mt-3 bg-secondary"> 
+    <div class="p-3">
+        <h1>Login Registration</h1>
+    </div>
+    <div>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    </div>
+    <div class="d-flex flex-row align-items-center p-3 m-5">
+        <div class="d-flex justify-content-center bg-light m-4 p-3 border rounded-3 shadow-lg">
+            <form class="d-flex flex-column justify-content-between mb-2 p-3"action="user/register" method="POST">
+            
+                <div>
+                    <h2>Registration</h2>
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">First Name</label>
+                    <input type="text" aria-label="Last name" class="form-control" name="first_name">
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Last Name</label>
+                    <input type="text" aria-label="Last name" class="form-control" name="last_name">
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Email</label>
+                    <input type="text" aria-label="Last name" class="form-control" name="email">
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Password</label>
+                    <input type="password" aria-label="Last name" class="form-control" name="password">
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Confirm PW</label>
+                    <input type="password" aria-label="Last name" class="form-control" name="cf_password">
+                </div>
+                <div class="d-flex flex-column">
+                    <button class="btn btn-outline-secondary shadow-lg mt-3" type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form style="height: 550px; width: 275px;" class="d-flex flex-column justify-content-center bg-light m-3 p-3 border   rounded-3 shadow-lg" action="/login" method="POST">
+                
+                <div class="d-flex flex-row justify-content-center">
+                    <h2>Login</h2>
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Email</label>
+                    <input type="text" aria-label="Last name" class="form-control" name="email">
+                </div>
+                <div class="d-flex flex-column">
+                    <label for="">Password</label>
+                    <input type="password" aria-label="Last name" class="form-control" name="password">
+                </div>
+                <div class="d-flex flex-column">
+                    <button class="btn btn-outline-secondary shadow-lg mt-3"  type="submit">Login</button>
+                </div>
+            </form>
+    
+    </div>
+    </div>
+</body>
+</html>
